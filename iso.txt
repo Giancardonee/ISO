@@ -1,0 +1,145 @@
+(a) Cree la carpeta ISO2017
+	uso mkdir *nombre*
+(b) Acceda a la carpeta (cd)
+	cd *nombre*
+(c) Cree dos archivos con los nombres iso2017-1 e iso2017-2 (touch)
+	touch *nombre1* *nombre2*
+(d) Liste el contenido del directorio actual (ls)
+	ls
+(e) Visualizar la ruta donde estoy situado (pwd)
+	pwd
+(f) Busque todos los archivos en los que su nombre contiene la cadena “iso*” (find)
+	find -name *"nombre*"*
+(g) Informar la cantidad de espacio libre en disco (df)
+	df
+(h) Verifique los usuarios conectado al sistema (who)
+	who
+(i) Acceder a el archivo iso2017-1 e ingresar Nombre y Apellido
+	1) vi iso2017-1
+	2) r
+	3) escribir cualquier cosa
+	4) esc
+	5) :wq
+(j) Mostrar en pantalla las últimas líneas de un archivo (tail).
+	tail iso2017-1
+	
+------------------------------------------------------------------------------------
+
+11) Investigue su funcionamiento y parámetros más importantes:
+(a) shutdown
+	Función: Apaga, reinicia o pone el sistema en modo de espera.
+	Parámetros importantes:
+		shutdown now: Apaga el sistema inmediatamente.
+		shutdown -r now: Reinicia el sistema inmediatamente.
+		shutdown +10: Apaga el sistema en 10 minutos.
+		shutdown -h now: Apaga el sistema y detiene todos los procesos (halt).
+		shutdown -c: Cancela un apagado programado.
+(b) reboot
+	Función: Reinicia el sistema.
+	Parámetros importantes:
+		reboot -f: Fuerza el reinicio sin llamar a shutdown.
+		reboot --halt: Detiene el sistema sin reiniciarlo.
+		reboot --poweroff: Apaga el sistema después de reiniciarlo.
+(c) halt
+	Función: Detiene el sistema de inmediato.
+	Parámetros importantes:
+	halt: Detiene todos los procesos y apaga el sistema.
+	halt -f: Fuerza la detención sin llamar a shutdown.
+(d) locate
+	Función: Busca archivos en el sistema usando una base de datos.
+	Parámetros importantes:
+	locate <nombre>: Busca archivos que coincidan con <nombre>.
+	locate -i: Ignora mayúsculas y minúsculas en la búsqueda.
+	locate -r: Usa expresiones regulares para la búsqueda.
+(e) uname
+Función: Muestra información sobre el sistema operativo.
+	Parámetros importantes:
+		uname -a: Muestra toda la información disponible.
+		uname -r: Muestra la versión del kernel.
+		uname -s: Muestra el nombre del kernel.
+		uname -m: Muestra la arquitectura de la máquina (e.g., x86_64).
+(f) dmesg
+Función: Muestra mensajes del buffer del kernel, útiles para diagnosticar problemas del sistema.
+	Parámetros importantes:
+		dmesg | less: Muestra los mensajes en formato paginado.
+		dmesg -c: Limpia el buffer del kernel después de mostrarlo.
+		dmesg -T: Muestra los tiempos en formato legible por humanos.
+(g) lspci
+Función: Lista todos los dispositivos PCI en el sistema.
+	Parámetros importantes:
+		lspci -v: Muestra detalles de cada dispositivo.
+		lspci -vv: Muestra detalles aún más extensos.
+		lspci -s <bus:dev.fn>: Filtra por un dispositivo específico
+		
+(h) at
+Función: Programa comandos para ser ejecutados en un tiempo específico.
+	Parámetros importantes:
+		at 10:00: Programa un comando para que se ejecute a las 10:00.
+		atq: Lista los trabajos pendientes programados con at.
+		atrm <job_number>: Elimina un trabajo programado.
+		
+(i) netstat
+Función: Muestra estadísticas de red, conexiones de red y tablas de enrutamiento.
+	Parámetros importantes:
+		netstat -tuln: Muestra los puertos TCP y UDP que están escuchando.
+		netstat -r: Muestra la tabla de enrutamiento.
+		netstat -p: Muestra los programas usando conexiones de red.
+		
+(j) mount
+Función: Monta sistemas de archivos en dispositivos.
+	Parámetros importantes:
+		mount /dev/sda1 /mnt: Monta el dispositivo /dev/sda1 en /mnt.
+		mount -o ro /dev/sda1 /mnt: Monta el dispositivo en modo de solo lectura.
+		mount -a: Monta todos los sistemas de archivos especificados en /etc/fstab.
+		
+		
+k) umount
+Función: Desmonta un sistema de archivos.
+	Parametros importantes:
+		mount /mnt: Desmonta el sistema de archivos montado en /mnt.
+		mount -f /mnt: Fuerza el desmontaje, útil cuando el sistema de archivos está en uso.
+		umount -l /mnt: Desmonta de forma "perezosa", el sistema de archivos se desmontará cuando ya no esté en uso.
+		
+(l) head
+Función: Muestra las primeras líneas de un archivo.
+	Parámetros importantes:
+		head archivo.txt: Muestra las primeras 10 líneas del archivo.
+		head -n 20 archivo.txt: Muestra las primeras 20 líneas.
+		head -c 100 archivo.txt: Muestra los primeros 100 caracteres del archivo.		
+		
+(m) losetup
+Función: Configura y controla dispositivos de bucle (loop devices).
+	Parámetros importantes:
+		losetup -a: Muestra todos los dispositivos de bucle activos.
+		losetup /dev/loop0 imagen.iso: Asocia el dispositivo de bucle /dev/loop0 con imagen.iso.
+		losetup -d /dev/loop0: Desasocia un dispositivo de bucle.		
+		
+(n) write
+Función: Envía un mensaje a otro usuario en la misma máquina.
+	Parámetros importantes:
+		write usuario: Inicia una sesión de escritura con el usuario especificado.
+		Para enviar un mensaje, simplemente escribe el texto y presiona Enter.		
+		
+(ñ) mkfs
+Función: Crea un sistema de archivos en una partición o dispositivo.
+	Parámetros importantes:
+		mkfs -t ext4 /dev/sda1: Crea un sistema de archivos ext4 en /dev/sda1.
+		mkfs.vfat /dev/sdb1: Crea un sistema de archivos FAT en /dev/sdb1.		
+		
+(o) fdisk (con cuidado)
+Función: Manipula la tabla de particiones en un disco duro.
+	Parámetros importantes:
+		fdisk /dev/sda: Abre el disco /dev/sda para manipular particiones.
+		Dentro de fdisk, algunos comandos importantes son:
+		p: Muestra la tabla de particiones.
+		n: Crea una nueva partición.
+		d: Elimina una partición.
+		w: Escribe los cambios y sale.
+		Advertencia: fdisk puede destruir datos si se usa incorrectamente, siempre asegúrate de saber lo que estás haciendo antes de aplicar cambios.		
+			
+		
+		
+		
+		
+		
+		

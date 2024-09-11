@@ -1,0 +1,39 @@
+En Linux, no hay carpetas, en Linux hay directorios
+==> pwd: Muestra la ruta actual 
+home: Almacena los datos de los usuarios
+ 
+==> ls : lista los directorios y archivos que se encuentran donde estamos parados. 
+
+1) parámetros para ls: ls -al 
+Nos muestra mas detallado los drectorios del usuario creo  (muestra directorios ocultos y no ocultos)
+2) parámetros para ls: ls -a 
+nos muestra todos los archivos y todos los directorios y además los que están ocultos (los que están ocultos comienzan con un .)
+
+3) parámetro para ls: ls -l 
+nos muestra todos los directorios que están visibles (que no están ocultos
+
+)
+
+==> touch: touch archivo.txt 
+creamos un archivo txt 
+
+si hacemos un ls -al podemos ver su fecha de modificación
+
+para ver los datos específicos del archivo podemos hacer 
+ls - al archivo.txt 
+de esta manera nos muestra los datos del archivo que creamos. 
+
+ ==> cp: Copiamos un archivo ej: cp archivo.txt archivo-copia.txt
+
+como copiar un directorio: 
+cp -r Directorio/ copia_directorio 
+
+
+==> para poder ver el contenido de un directorio pero sin ingresar, hacemos un : ls copia_directorio
+
+==> mover archivos con mv 
+mv archivo-copia.txt archivo-movido.txt 
+
+==> mover directorios: 
+mc copia_dowloads/ dowloads_move
+

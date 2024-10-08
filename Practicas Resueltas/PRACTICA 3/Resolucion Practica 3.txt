@@ -1,0 +1,319 @@
+1: 
+El Shell Scripting es una forma de programación que se utiliza para escribir secuencias de comandos o scripts que son interpretados y ejecutados por un intérprete de comandos de shell. El shell es un programa que proporciona una interfaz para que los usuarios interactúen con el sistema operativo mediante comandos.
+
+Tipos de Tareas para los Scripts: 
+Automatizacion de tareas repetitivas: Automatizar tareas que se realizan de forma regular, como la copia de archivos, la creación de respaldos, o la limpieza de archivos temporales.
+Administracion del sistema:  Configuración de sistemas, monitoreo de recursos, gestión de usuarios, y otras tareas de mantenimiento del sistema.
+Procesamiento de Texto y Archivos: Manipulación de archivos de texto, búsqueda y reemplazo de texto, y procesamiento de datos.
+
+Los scripts deben compilarse? Por que? 
+Los scripts no necesitan ser compilados. Los scripts de shell se escriben en un lenguaje interpretado. 
+El interprete de shell (como puede ser bash) lee y ejecuta el script linea por linea. 
+Los scripts son interpretados directamente por el intérprete del shell, lo que facilita la edición y ejecución rápida sin necesidad de un proceso de compilación.
+Los scripts de shell suelen ser utilizados para tareas menos intensivas en términos de procesamiento. 
+
+Conclusion: Shell scripting es una herramienta poderosa para la automatización y administración de sistemas, y su naturaleza interpretada simplifica el proceso de desarrollo y prueba.
+
+2: 
+
+echo: 
+Se utiliza para imprimir texto, generalmente en la terminal. Es util para mostrar mensajes,resultados de comandos o valores de variables en un script de shell.
+Alguno de sus usos: 
+- Imprimir en la terminal
+==> echo "Hola Mundo"
+
+- Mostrar el valor de una variable 
+
+==> nombre="Gianca"
+==> echo "Hola!! ,$nombre"
+
+Parametros que se le pueden mandar para imprimir en salto de linea o sobre la misma linea: 
+-n : no agrega una linea al final de la salida
+   ej: echo -n "Hola Giankis"
+
+-e : habilita \n para una nueva linea  
+   ej : echo -e "Linea 1 \nLinea 2" 
+
+read: 
+Se utiliza para leer una entrada del usuario desde la terminal y asignar el valor ingresado a una variable
+--> ej: Leemos un nombre y lo asignamos en la variable nombre
+==> read nombre 
+
+--> Imprimimos el nombre 
+==> echo "Hola, $nombre" 
+
+Tambien con el read podemos leer multiples valores
+ej: leemos nombre y despues de un espacio leemos la edad, en este caso read divide la entrada segun los espacios
+==> read nombre edad
+
+==> echo "Nombre: $nombre, Edad: $edad"
+
+tambien podemos especificar un prompt: 
+
+==> read -p "Ingresa tu nombre YA! : " nombre
+
+==> echo "Hola, $nombre"
+
+2a: Los comentarios dentro de un script se indican con #  
+cada # indica un comentario en esa linea en especifico
+==> # Esto es un comentario dentro de un script 
+==>  echo "Hola Gianca!" # a partir de aca es un comentario esto 
+
+2b: Declaracion y referencia de variables dentro de un script: 
+Para declarar una variable en un script, debemos darle un valor a un nombre de variable (IMPORTANTE QUE NO TENGA ESPACIOS EN EL MEDIO)
+==> nombre="Gianca"
+==> edad=72
+
+Para usar el valor de una variable, debemos hacerlo poniendo $ y seguido el nombre de la variable 
+==> echo "Hola! $nombre"
+==> echo "Tu edad es: $edad"
+
+3: 
+
+- Primero tenemos que ir al directorio personal del usuario logueado: 
+yo hago
+ ==> cd /home
+ ==> cd /gianca , o cd /<usuario>
+
+- si estamos en el directorio personal de nuestro usuario, si hacemos
+ ==> pwd
+ deberiamos ver algo como /home/<usuario> 
+
+ - una vez que estoy en mi directorio personal, creo el directorio llamado practica-shell-script
+ ==> mkdir practica-shell-script 
+
+ - entro en el directorio usando cd:
+ ==> cd practica-shell-script
+
+ - creo un archivo llamado mostrar.sh, lo voy a crear usando vi 
+==> vi mostrar.sh
+- apretamos i para entrar en modo de insercion
+y empezamos a escribir lo que nos dan: 
+
+#!/bin/bash
+# Comentarios acerca de lo que hace el script
+# Siempre comento mis scripts, si no hoy lo hago
+# y mañana ya no me acuerdo de lo que quise hacer
+echo "Introduzca su nombre y apellido:"
+read nombre apellido
+echo "Fecha y hora actual:"
+date
+echo "Su apellido y nombre es:
+echo "$apellido $nombre"
+echo "Su usuario es: $(whoami)"
+echo "Su directorio actual es: $(pwd)"
+
+apretamos esc y :wq para guardar y salir. 
+
+a: asignamos al archivo creado, los permisos necesarios para poder ejecutarlo: 
+==> chmod 777 mostrar
+
+para ver los permisos del archivo usamos: 
+==> ls -l mostrar
+
+b: ejecutamos el archivo con ./mostrar.sh
+c: Veo que me pide el nombre y apellido, luego imprime la fecha actual, mi apellido y mi nombre, el usuario actual, y despues el directorio donde estoy. 
+d: Se usan para sustituir comandos dentro de una cadena de texto. Esta característica permite ejecutar un comando y usar su salida como parte de otro comando o dentro de una cadena de texto.
+
+e: 
+parados en el mismo directorio donde se encuentra el script ./mostrar.sh
+lo que voy a hacer es copiarlo en el mismo directorio, le cambio el nombre y luego modificarlo
+
+==> cp ./mostrar.sh ./Ejercicio3_IncisoD.sh
+
+puedo hacer un ls y me va a mostrar los dos scripts: Ejercicio3_IncisoD.sh y mostrar.sh 
+despues hacemos ==> vi ./Ejercicio3_IncisoD.sh
+y lo voy editando con vi en mi caso. 
+
+4: 
+
+1. Acceso a los Parámetros del Script
+Cuando invocas un script con argumentos, estos argumentos se acceden mediante variables especiales. Aquí están las variables más comunes:
+
+$1, $2, ..., $N: Representan los argumentos pasados al script. $1 es el primer argumento, $2 el segundo, y así sucesivamente. Por ejemplo, si llamas al script con ./script.sh arg1 arg2, dentro del script $1 será arg1 y $2 será arg2.
+
+$#: Contiene el número de argumentos pasados al script. Por ejemplo, si se ejecuta ./script.sh arg1 arg2 arg3, $# será 3.
+$*: Contiene todos los argumentos pasados al script como una sola cadena de texto. Si los argumentos son arg1, arg2, y arg3, entonces $* será "arg1 arg2 arg3".
+$@: Similar a $*, pero trata cada argumento como una entidad separada, preservando los espacios dentro de los argumentos individuales. Si los argumentos son arg1, arg2, y arg3, entonces $@ será "arg1" "arg2" "arg3". Esto es útil en bucles para iterar sobre argumentos.
+$?: Contiene el código de salida del último comando ejecutado. Un código de salida de 0 generalmente indica que el comando se ejecutó exitosamente, mientras que cualquier otro valor indica un error.
+$HOME: Contiene la ruta al directorio home del usuario que está ejecutando el script. Por ejemplo, si lo ejecuto y mi nombre de usuario es gianca , mi directorio home es /home/gianca, entonces $HOME será /home/gianca.
+
+5: 
+el comando exit se usa para salir de un script o de una sesion de shell, y opcionalmente para devolver un codigo de salida al entorno que lo invoco 
+
+Salir del Script: Cuando se ejecuta exit dentro de un script, el script termina su ejecución inmediatamente. No se ejecutan las líneas restantes del script después del comando exit.
+# Script example.sh
+echo "Hola Mundo"
+exit
+
+
+Ademas el comando exit puede recibir valores por parametro
+# Script example.sh
+echo "Algo salió mal"
+exit 1
+
+codigo 0: indica que el script termino exitosamente sin errores
+codigo 1: indica que ocurrio un error generalmente
+
+6: 
+El comando expr se usa para evaluar expresiones aritmeticas de comparacion y logicas. 
+Es una herramienta para realizar calculos simples y comparar valores en scripts de shell 
+
+la sintaxis basica del comando es: 
+
+en expresiones aritmeticas: 
+==> expr arg1 op arg2 
+ejemplo: 
+
+==> expr 5 + 5 
+se muestra en la salida = 10 
+
+==> expr 5 \* 5 
+multiplicacion: la multiplicacion debe ser predecedida por una barra \* 
+se muestra en la salida = 25 
+
+==> expr 5 / 5 
+division 
+
+en expresiones logicas: 
+expr 5 = 5 
+resultado 1 (true)
+
+expr 5 != 3 
+resultado 1 (true)
+
+expr 5 \> 3
+resultado 1 (true)
+
+7: 
+El comando test y su equivalente en corchetes [] permiten evaluar una variedad de expresiones y generar un valor de retorno que indica si la expresion es verdadera o falsa
+usos: 
+ Evaluacion de archivos: 
+
+ -e: Verifica si el archivo existe  
+ ==> test -e archivo.txt 
+  es equivalente a hacer
+ ==> [ -e archivo.txt ]
+
+ -f: Verifica si el archivo es un archivo regular. 
+ ==> test -f archivo.txt
+   es equivalente a hacer
+ ==> [ -f archivo.txt ]
+
+ -d: Verifica si el archivo es un directorio 
+ ==> test -d archivo.txt
+   es equivalente a
+ ==> [ -d archivo.txt ]
+
+ Evalucion de Cadenas de caractetes: 
+
+ -z: Verifica si la cadena es vacia (Longitud cero)
+ ==> test -z "$cadena"
+  es equivalente a 
+ ==> [ -z "$cadena" ]
+
+ -n: Verifica si la cadena no esta vacia (Longitud mayor a cero)
+ ==> test -n "$cadena"
+  es equivalente a 
+ ==> [ -n "$cadena" ]
+
+ "cadena1" = "cadena2": Verifica si ambas cadenas coinciden
+ ==> test "$cadena1" = "$cadena2"
+  es equivalente a 
+ ==> [ "$cadena1" = "$cadena2"]
+
+ Evaluaciones numericas: 
+
+ -eq: Verifica si dos números son iguales.
+ ==> test 5 -eq 5
+   es equivalente a 
+ ==> [ 5 -eq 5 ]
+
+ -ne: Verifica si dos números no son iguales.
+ ==> test 5 -ne 3
+  es equivalente a 
+==> [ 5 -ne 3 ]
+
+-lt: Verifica si el primer número es menor que el segundo.
+==> test 5 -lt 8
+ es equivalente a 
+==> [ 5 -lt 8 ]
+
+-gt: Verifica si el primer número es mayor que el segundo.
+==> test 8 -gt 5
+ es equivalente a 
+==> [ 8 -gt 5 ]
+
+8: 
+Resuelto en el PDF 
+
+9: 
+Las sentencias break y continue controlan el flujo en los bucles dentro de los scripts
+BREAK: 
+Se usa para salir completamente del bucle (puede ser un bucle while, for, until)
+comando 1:  ==> break 
+comando 2: ==> break [n]
+n (opcional): Especifica el número de niveles de bucles a los que break debe salir. Si se omite, break sale del bucle más interno.
+ejemplo con el primer comando : 
+for i in {1..10}; do
+
+    if [ $i -eq 5 ]; then
+        break  # Sale del bucle cuando i es igual a 5
+    fi
+    echo "Número: $i"
+done
+
+echo "Fin del bucle"
+
+ejemplo con el segundo comando: 
+for i in {1..3}; do
+    while true; do
+        echo "Dentro del bucle while"
+        break 2  # Sale de ambos bucles (for y while)
+    done
+    echo "Este mensaje no se imprimirá"
+done
+
+--=> break 2 hace que se salga tanto del bucle while como del bucle for.
+
+CONTINUE: 
+Se usa para omitir el resto de la iteracion actual y pasar a la siguiente iteracion. 
+
+ejemplo: 
+for i in {1..5}; do
+    if [ $i -eq 3 ]; then
+        continue  # Salta a la siguiente iteración cuando i es igual a 3
+    fi
+    echo "Número: $i"
+done
+
+10: 
+Tipos de variables en Shell Scripting
+Las variables son dinamicamente tipadas y no tienen un tipo de dato fijo. 
+En bash, las variables pueden contenet textom numeros y otros tipos de datos
+no se necesitan declarar un tipo en especifico. 
+
+
+15: comando cut
+
+el comando cut nos permite procesar la linea de entrada que reciba (archivo, entrada estándar, resultado de otro comando, etc) y cortar columnas o campos,
+siendo posible indicar cual es el delimitador de las mismas.
+
+Su sintaxis vasica es: cur [opciones] [archivo]
+parametros: -d: Especifica el delimitador que separa los campos (por defecto es \t)
+
+ejemplo1: cut -d',' -f1 archivo.csv 
+esto extraera el primer campo de cada linea (asumiendo que los campos estan separados por comas)
+
+-f: Selecciona los campos a extraer. Los campos se cuentan a partir de 1. 
+Ejemplo: obtener el segundo y tercer campo de un archivo csv
+cut -d',' -f2,3 archivo.csv
+
+-c: Permite seleccionar caracteres especificos de cada linea 
+Ejemplo: para extraer los primeros cinco caracteres de cada linea de un archivo. 
+cut -c1-5 archivo.txt
+
+-s: Muestra solo las lineas que contienen el delimitador especificado
+cut -d',' -f2 -s archivo.txt
+
+

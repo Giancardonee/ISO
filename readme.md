@@ -65,7 +65,7 @@
   sintaxis: cp <origen> <destino>  
   ejemplo: cp archivo.txt /home/gianca/archivos  
   
-**Buscar a partir el nombre de usuario ingresado, su grupo y su home.**
+**Buscar a partir del nombre de usuario ingresado, su grupo y su home.**
 ![image](https://github.com/user-attachments/assets/e7563b6f-a417-4bbb-a26a-c3edd20d5ec0)
 
 

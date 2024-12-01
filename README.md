@@ -11,5 +11,3 @@
 
 ![image](https://github.com/user-attachments/assets/f6033561-d888-41a8-a142-f8a533d90cd1)
 
-👨‍💻 **Autor:** [Giancardonee](https://github.com/Giancardonee)  
-⭐ **No olvides dar una estrella al repositorio si te resulta útil!**

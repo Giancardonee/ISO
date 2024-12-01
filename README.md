@@ -1,3 +1,7 @@
+
+![image](https://github.com/user-attachments/assets/f6033561-d888-41a8-a142-f8a533d90cd1)
+
+
 # 📘 Prácticas Resueltas
 
 ## 📂 Lista de Prácticas
@@ -8,6 +12,3 @@
 4. 📝 [Práctica 4](https://github.com/Giancardonee/ISO/tree/main/Practicas%20Resueltas/Practica%204)  
 5. 📝 [Práctica 5](https://github.com/Giancardonee/ISO/tree/main/Practicas%20Resueltas/Practica%205)  
 6. 📝 [Práctica 6](https://github.com/Giancardonee/ISO/tree/main/Practicas%20Resueltas/Practica%206)
-
-![image](https://github.com/user-attachments/assets/f6033561-d888-41a8-a142-f8a533d90cd1)
-

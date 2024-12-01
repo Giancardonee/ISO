@@ -1,0 +1,33 @@
+Algoritmos para manejo de discos: 
+
+Importante: Siempre que tengamos, o se incorpote un PF,se va a ejecutar ese requerimiento "especial"
+
+1. FCFS (First Come, First Served)
+Atiende las solicitudes en el orden en que llegan (FIFO).
+PF: Se atienden primero, también en orden FIFO.
+Si llegan nuevas solicitudes, se encolan al final de su respectivo tipo (PF o normales).
+2. SSTF (Shortest Seek Time First)
+Atiende la solicitud más cercana a la posición actual de la cabeza del disco.
+Si llegan nuevas solicitudes, se reordenan según su cercanía a la posición actual.
+PF: Se priorizan sobre las normales y se atiende el PF más cercano primero.
+3. SCAN (Elevator Algorithm)
+La cabeza del disco se mueve en una dirección hasta alcanzar un extremo (0 o n-1), procesando todas las solicitudes en el camino.
+Al llegar al extremo, invierte la dirección y procesa las solicitudes restantes.
+PF: Se priorizan y se procesan primero en la dirección en la que la cabeza se mueve.
+Nota: La dirección actual de movimiento es clave para determinar qué solicitudes se atienden primero.
+4. LOOK
+Similar a SCAN, pero la cabeza solo se mueve hasta la última solicitud en la dirección actual (no llega hasta el extremo si no es necesario).
+Una vez procesadas todas las solicitudes en la dirección actual, invierte su movimiento.
+PF: Se procesan primero siguiendo la lógica de movimiento hacia la solicitud más lejana en la dirección actual.
+Nota: También puede cambiar de dirección antes de alcanzar un límite si ya no quedan solicitudes.
+5. Algoritmos circulares
+Salto circular: La cabeza del disco salta desde un extremo al otro sin procesar solicitudes durante el salto.
+Siempre se desplaza en una misma dirección.
+C-SCAN (Circular SCAN)
+Funciona como SCAN, pero cuando llega a un extremo, salta al otro extremo sin procesar solicitudes durante el salto.
+Se continúa atendiendo solicitudes en la misma dirección.
+PF: Atiende los PF en orden, respetando la dirección constante de movimiento.
+C-LOOK (Circular LOOK)
+Similar a LOOK, pero con salto circular: cuando alcanza la última solicitud en la dirección actual, salta al otro extremo donde haya solicitudes.
+Se continúa atendiendo en la misma dirección, evitando recorrer regiones vacías.
+PF: Igual que en C-SCAN, se priorizan los PF respetando la dirección constante.

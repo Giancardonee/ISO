@@ -1,0 +1,616 @@
+1 Caracteristicas de GNU / Linux 
+a)  Mencione y explique las características más relevantes de GNU/Linux
+	Código Abierto y Libre: GNU/Linux es un sistema operativo de código abierto bajo la licencia GPL (General Public License). Esto permite a los usuarios acceder al código fuente, modificarlo y redistribuirlo según sus necesidades, promoviendo la transparencia y colaboración.
+	Licencias Flexibles: GNU/Linux está bajo la Licencia Pública General de GNU (GPL) y otras licencias de software libre que permiten la modificación y redistribución del software bajo ciertas condiciones.
+	Multitarea y Multiusuario: GNU/Linux soporta múltiples tareas simultáneas y permite que varios usuarios trabajen en el mismo sistema al mismo tiempo sin interferirse entre sí.
+	Estabilidad y Seguridad: Es conocido por su estabilidad y robustez. Los servidores y sistemas críticos suelen elegir GNU/Linux debido a su alta fiabilidad y a su capacidad para manejar grandes cargas de trabajo.
+	Terminal y Comandos: GNU/Linux ofrece una potente interfaz de línea de comandos (shell) que permite a los usuarios ejecutar comandos, automatizar tareas y gestionar el sistema con gran precisión.
+	Redes y Servidores: Es ampliamente utilizado en servidores y entornos de red debido a su capacidad para manejar tareas complejas, su seguridad, y su compatibilidad con una variedad de protocolos y servicios.
+
+b)  Mencione otros sistemas operativos y compárelos con GNU/Linux en cuanto a los puntos mencionados en el inciso a.
+	Código Abierto y Libre
+GNU/Linux ==>  Código Abierto: Sí. GNU/Linux es un sistema operativo de código abierto y libre, permitiendo la modificación y distribución bajo licencias como la GPL.
+Windows ==> Código Abierto: No. Windows es un sistema operativo propietario desarrollado por Microsoft. Su código fuente no está disponible públicamente, y no se permite la modificación ni redistribución.
+macOS ==> Código Abierto: No. macOS es un sistema operativo propietario desarrollado por Apple. Aunque utiliza algunos componentes basados en tecnología de código abierto, como el núcleo XNU, el sistema completo no está disponible para modificación ni redistribución.
+
+	Estabilidad y Seguridad
+GNU/Linux ==> Estabilidad: Alta. Conocido por su estabilidad, especialmente en servidores y entornos de misión crítica.
+Seguridad: Alta. Ofrece robustas características de seguridad, actualizaciones regulares, y un modelo de permisos detallado.
+Windows ==> Estabilidad: Moderada a alta. Las versiones más recientes han mejorado, pero históricamente ha tenido problemas con inestabilidad y fallos.
+Seguridad: Moderada. Aunque ha mejorado en términos de seguridad, sigue siendo un objetivo principal para malware debido a su popularidad.
+macOS ==> Estabilidad: Alta. macOS es conocido por su estabilidad, en gran parte debido a su integración con el hardware de Apple.
+Seguridad: Alta. macOS tiene un enfoque fuerte en la seguridad, con características como Gatekeeper y un sistema de permisos robusto.
+
+	Terminal y Comandos
+GNU/Linux ==> Terminal: Potente. Ofrece una línea de comandos robusta con una amplia gama de herramientas y comandos. La terminal es fundamental para muchas tareas administrativas y desarrollo.
+Windows ==> Terminal: Menos potente en comparación. Windows tiene PowerShell y el Command Prompt, que han mejorado con el tiempo, pero históricamente han sido menos avanzados que las terminales de Unix/Linux.
+macOS ==> Terminal: Potente. Ofrece una terminal basada en Unix que es bastante similar a la de GNU/Linux, permitiendo un acceso robusto a herramientas de línea de comandos.
+
+c) ¿Qué es GNU?
+ GNU es un sistema operativo tipo Unix que se caracteriza por ser libre y de código abierto, lo que permite a los usuarios no solo utilizarlo sin costo alguno, sino también estudiar, modificar y distribuir su código fuente. Diseñado por una comunidad global de programadores, GNU ofrece diversas distribuciones personalizables adaptadas a diferentes necesidades y preferencias. A través de su naturaleza abierta, proporciona transparencia y control sobre el software, permitiendo a los usuarios aprender sobre su funcionamiento interno, auditarlo por seguridad y contribuir a su desarrollo continuo.
+
+(d) Indique una breve historia sobre la evolución del proyecto GNU
+El proyecto GNU, iniciado por Richard Stallman en 1983, buscaba crear un sistema operativo tipo Unix completamente libre. Para garantizar la libertad del software, se creó la Licencia Pública General de GNU (GPL). En 1985, Stallman fundó la Free Software Foundation (FSF) para financiar el proyecto.
+Para 1990, GNU ya contaba con varias herramientas importantes, como el editor Emacs y el compilador GCC, pero le faltaba un núcleo (kernel). El primer intento de crear un núcleo, llamado TRIX, fue abandonado debido a su complejidad. Luego, se intentó desarrollar GNU Hurd basado en el núcleo MACH, pero también fracasó.
+En 1991, Linus Torvalds creó el núcleo Linux y lo distribuyó bajo la GPL. En 1992, Torvalds y Stallman decidieron combinar el núcleo Linux con los componentes de GNU, dando lugar al sistema operativo conocido como GNU/Linux, que sigue siendo un ejemplo destacado de software libre.
+
+(e) Explique qué es la multitarea, e indique si GNU/Linux hace uso de ella.
+La multitarea es una capacidad de los sistemas operativos que permite la ejecución simultánea de múltiples tareas o procesos. Existen dos tipos principales de multitarea:
+Multitarea Cooperativa: Los procesos deben ceder el control explícitamente para permitir que otros procesos se ejecuten. Esto puede causar problemas si un proceso no cede el control adecuadamente.
+Multitarea Preventiva (o por desalojo): El sistema operativo gestiona el tiempo de CPU y asigna intervalos de tiempo a cada proceso. Si un proceso consume demasiado tiempo, el sistema operativo puede interrumpirlo y permitir que otros procesos se ejecuten. Esto es más eficiente y evita que un solo proceso monopolice el sistema.
+GNU/Linux utiliza la multitarea preventiva. Esto significa que el núcleo de Linux gestiona el tiempo de CPU y asegura que todos los procesos reciban su turno de ejecución, manteniendo un equilibrio entre ellos. La multitarea en GNU/Linux permite a los usuarios ejecutar múltiples aplicaciones simultáneamente, mejorar la eficiencia del sistema y garantizar una respuesta ágil en entornos multitarea complejos.
+
+(f) ¿Qué es POSIX?
+POSIX (Portable Operating System Interface) es un estándar desarrollado para asegurar la compatibilidad y portabilidad entre diferentes sistemas operativos tipo Unix. Este conjunto de normas define interfaces de programación y servicios del sistema que los sistemas operativos deben proporcionar para que los programas puedan ejecutarse en diferentes plataformas sin necesidad de modificaciones significativas.
+
+2 Distribuciones de GNU/Linux:
+(a) ¿Qué es una distribución de GNU/Linux? Nom
+ Primer definicion: Una distribución de Linux, es una variante del sistema operativo Linux que incluye el núcleo (kernel) de Linux junto con una colección de software adicional. Cada distribución tiene su propia forma de manejar el software, las actualizaciones y la configuración del sistema. Las distribuciones pueden variar en términos de usabilidad, enfoque, y el tipo de software que incluyen por defecto.
+ Segunda definicion: Una distribuci´on es una customizacion de GNU/Linux formada por una version de kernel y determinados programas con sus configuraciones
+
+Ubuntu ==> Enfoque: Diseñada para ser fácil de usar y accesible para principiantes. Es ampliamente utilizada en escritorios y servidores.
+Fedora ==> Enfoque: Orientada a ofrecer software actualizado y las últimas tecnologías, a menudo sirve como campo de pruebas para Red Hat Enterprise Linux.
+Debian ==> Enfoque: Conocida por su estabilidad y robustez, ideal para servidores y sistemas críticos.
+Arch Linux ==> Enfoque: Dirigida a usuarios avanzados que buscan un sistema personalizado y minimalista, con un enfoque en la simplicidad y el control total.
+
+b) Las distribuciones se diferencian segun la experiencia del usuario y los usos que se les pueda dar. 
+Distribuciones como Ubuntu y Linux Mint estan diseñadas para usuarios que buscan facilidad de uso y una experiencia amigable.
+Mientras que Arch Linux y Gentoo estan orientadas a usuarios con conocimientos mas avanzados. 
+Tambien, las distribuciones se diferencian en su tipo de uso, entre los usos posibles se encuentran Escritorio y Servidor
+
+c)  ¿Qué es Debian? Acceda al sitio 1e indique cuáles son los objetivos del proyecto y una breve cronología del mismo.
+Debian es una distribución de GNU/Linux que se basa en principios de software libre y tiene como objetivo ser una plataforma robusta y estable para servidores y estaciones de trabajo. Fue fundada en 1993 por Ian Murdock y ha crecido hasta convertirse en una de las distribuciones más influyentes y utilizadas en el ecosistema de Linux.
+
+Objetivos del Proyecto Debian:
+Proporcionar un sistema operativo completamente libre que respete las libertades de los usuarios.
+Ofrecer estabilidad y fiabilidad a través de un proceso de desarrollo riguroso.
+Mantener un repositorio amplio de software libre, garantizando que cualquier software pueda ser utilizado sin restricciones legales o éticas.
+Asegurar que Debian pueda ser utilizado en una amplia variedad de arquitecturas de hardware.
+
+Breve Cronología del Proyecto Debian:
+1993: Ian Murdock anuncia el proyecto Debian, inspirándose en la necesidad de una distribución que sea mantenida abierta y democráticamente.
+1994: Se lanza la primera versión oficial de Debian.
+1996: El proyecto crece y se introduce el "Debian Social Contract", que define los principios y objetivos del proyecto.
+1997: Se publica Debian 1.3, la última versión que incluye el núcleo original de Linux.
+2000: Debian introduce apt-get, que simplifica la gestión de paquetes y actualizaciones.
+2015: Debian lanza Debian 8 "Jessie", que incluye systemd como sistema de inicio predeterminado.
+Actualidad: Debian continúa siendo una distribución fundamental que sirve de base para muchas otras distribuciones, incluidas Ubuntu y Linux Mint.
+Para más información sobre Debian, puedes visitar su sitio oficial https://www.debian.org/intro/about.
+
+3. Estructura de GNU/Linux:
+(a) Nombre cuales son los 3 componentes fundamentales de GNU/Linux.
+Primer componente: El Núcleo (Kernel):
+El núcleo, o kernel, es el corazón del sistema operativo. Es el componente central que se encarga de gestionar el hardware del sistema, como la CPU, la memoria, los dispositivos de entrada/salida, y los sistemas de archivos. El núcleo actúa como intermediario entre el hardware y el software de usuario, proporcionando servicios esenciales como la gestión de procesos, la comunicación entre procesos y la administración de recursos.
+Segundo componente: Interprete de coman: Tambien conocido como CLI ( command line interface )
+Proporciona el modo de comunicacion entre el usuario y el sistema operativo. 
+Ejecuta programas a partir del ingreso de comandos. 
+Cada usuario puede tener uan interfaz o shell. 
+Tercer componente: Sistemas de archivos:  Organiza la forma en que se almacenan los archivos en dispositivos de almacenamiento (fat, ntfs ext2, ext3, reiser,etc.)
+Directorios m´as importantes seg´un FHS (Filesystem Hierarchy
+Standard)
+• / Tope de la estructura de directorios. Es como el C:\
+• /home Se almacenan archivos de usuarios (Mis documentos)
+• /var Informaci´on que var´ıa de tama˜no (logs, BD, spools)
+• /etc Archivos de configuraci´on
+• /bin Archivos binarios y ejecutables
+• /dev Enlace a dispositivos
+• /usr Aplicaciones de usuarios
+
+(b) Mencione y explique la estructura básica del Sistema Operativo GNU/Linux.
+La estructura básica de GNU/Linux se puede dividir en capas, cada una interactúa con la capa adyacente para proporcionar una funcionalidad completa del sistema operativo:
+Hardware: La capa más baja de la estructura incluye todos los componentes físicos de la computadora: CPU, memoria, dispositivos de almacenamiento, redes y periféricos. Esta capa es la base sobre la que se ejecuta el sistema operativo.
+
+Kernel (Núcleo): Encima del hardware se encuentra el kernel de Linux. El kernel es responsable de la comunicación directa con el hardware, gestionando recursos como la CPU, la memoria y los dispositivos de entrada/salida. También maneja las interrupciones y proporciona abstracciones que permiten a las aplicaciones acceder a los recursos del sistema sin necesidad de interactuar directamente con el hardware.
+
+Capa de Interfaz de Sistema y Bibliotecas: Esta capa incluye las bibliotecas del sistema (como la glibc) y las llamadas al sistema, que permiten que las aplicaciones interactúen con el kernel. Las bibliotecas proporcionan funciones reutilizables que facilitan la creación de software sin necesidad de interactuar directamente con el kernel.
+
+Shell e Intérpretes de Comandos: La capa de shell proporciona una interfaz para que los usuarios y scripts interactúen con el sistema operativo. Los shells permiten que los usuarios ejecuten comandos, manipulen archivos y procesos, y configuren el sistema. Los shells también ofrecen scripting, lo que permite la automatización de tareas.
+
+Aplicaciones y Entorno de Usuario: En la capa superior se encuentran las aplicaciones que los usuarios ejecutan en el sistema, desde editores de texto como Vim o Emacs, hasta navegadores web o entornos gráficos de escritorio como GNOME o KDE. Estas aplicaciones dependen de las bibliotecas del sistema y el kernel para funcionar correctamente.
+
+Resumen de la estructura básica de GNU/Linux:
+Hardware: Capa física.
+Kernel: Gestión de recursos y comunicación con el hardware.
+Bibliotecas del sistema y llamadas al sistema: Soporte para la interacción de las aplicaciones con el kernel.
+Shell: Interfaz de usuario para interactuar con el sistema.
+Aplicaciones: Software que se ejecuta en el entorno del usuario.
+Esta estructura jerárquica permite que el sistema operativo GNU/Linux sea modular, estable y eficiente.
+
+4. Kernel:
+(a) ¿Qué es? Indique una breve reseña histórica acerca de la evolución del Kernel de GNU/Linux.
+El kernel es el núcleo del sistema operativo GNU/Linux. Es responsable de la gestión de recursos del sistema, como la CPU, la memoria y los dispositivos de entrada/salida. Actúa como un intermediario entre el hardware y las aplicaciones, proporcionando una interfaz que permite a los programas interactuar con los componentes físicos de la máquina sin necesidad de gestionar directamente el hardware.
+El kernel ejecuta programas y gestiona dispositivos de hardware. 
+Es el encargado de que el software y el hardware puedan trabajar juntos.
+Sus funciones mas importantes son la administracion de memoria, cpu y la e/s. 
+
+Reseña historica: 
+
+• En 1991 Linus Torvalds inicia la programacion de un Kernel Linux basado en Minix con el fin de crear un S.O de usp didactico. 
+• El 5 de octubre de 1991, se anuncia la primera version “oficial” de Linux (0.02)
+• En 1992 se combina su desarrollo con GNU, formando GNU/Linux
+• En mayo de 1996 se decide adoptar a Tux como mascota oficial de Linux
+• En julio de 1996 se lanza la versi´on 2.0 y se define la nomenclatura de versionado. Se desarrollo hasta febrero de 2004 y termino con la 2.0.40
+• En enero de 1999 se lanza la versi´on 2.2, que provee mejorasde portabilidad entre otras y se desarrolla hasta febrero de 2004 terminando en la version 2.2.26
+• En 2001 se lanza la version 2.4 y se deja de desarrollar a fines del 2010 con la 2.4.37.11
+• A fines del 2003 se lanza la versi´on 2.6. Esta version ha tenido muchas mejoras para el SO dentro de las que se destacan soporte de hilos, mejoras en la planificacion y soporte de nuevo hardware
+• El 3 de agosto de 2011 se lanza la version 2.6.39.4 anunciandose la misma desde meses previos como la ultima en su revision
+• El 17 de julio de 2011 se lanza la version 3.01
+
+
+(b) ¿Cuáles son sus funciones principales?
+Las funciones principales del kernel de GNU/Linux son:
+Gestión de Procesos: El kernel administra la creación, ejecución y finalización de procesos. También maneja la programación de procesos, asegurando que cada proceso obtenga su parte justa de tiempo de CPU.
+Gestión de Memoria: El kernel gestiona la memoria del sistema, incluyendo la asignación de memoria a los procesos y la gestión de la memoria virtual. Esto incluye el intercambio de datos entre la RAM y el almacenamiento secundario cuando sea necesario.
+Gestión de Dispositivos (Drivers): El kernel controla y coordina el acceso a los dispositivos de hardware a través de los controladores de dispositivos (drivers). Proporciona una interfaz estándar para que las aplicaciones interactúen con dispositivos como discos, impresoras, redes, etc.
+Gestión del Sistema de Archivos: El kernel maneja el sistema de archivos, facilitando la creación, eliminación, lectura y escritura de archivos en diferentes tipos de sistemas de archivos, como ext4, XFS y Btrfs.
+Gestión de la Red: El kernel facilita la comunicación en red a través de la gestión de protocolos de red y el control de acceso a interfaces de red. Esto incluye la configuración de la pila TCP/IP, enrutamiento y seguridad de red.
+Seguridad y Control de Acceso: El kernel proporciona mecanismos de seguridad que controlan el acceso de los usuarios y procesos a los recursos del sistema. Esto incluye la gestión de permisos, autenticación y control de acceso a nivel de procesos.
+
+(c) ¿Cuál es la versión actual? ¿Cómo se definía el esquema de versionado del Kernel en versiones anteriores a la 2.4? ¿Qué cambió en el versionado se impuso a partir de la versión 2.6?
+
+La última versión LTS del núcleo Linux es la 6.1, que recibirá soporte hasta finales de 2026. Muchas distribuciones han adoptado el núcleo Linux 6.1 por la estabilidad y seguridad del sistema operativo.
+
+Antes de la versión 2.4, el esquema de versionado del kernel de Linux era bastante simple y se basaba en dos números principales:
+Versión Principal (X): Representa cambios importantes en el kernel, como nuevas funcionalidades o cambios arquitectónicos significativos.
+Versión Secundaria (Y): Representa mejoras menores, corrección de errores y ajustes dentro de la versión principal.
+Por ejemplo, en la versión 2.2, el primer número (2) representa la versión principal, y el segundo número (2) indica una actualización menor respecto a la versión 2.0.
+Cambios en el Esquema de Versionado a partir de la Versión 2.6:
+Con el lanzamiento de la versión 2.6 del kernel, el esquema de versionado se volvió más detallado y se introdujo un tercer número:
+Versión Principal (X): Cambios significativos y mejoras importantes.
+Versión Menor (Y): Actualizaciones menores, nuevas funcionalidades que no afectan la estabilidad general del sistema.
+Número de Revision (Z): Corrección de errores, parches y actualizaciones de seguridad.
+Así que, por ejemplo, en la versión 2.6.32:
+2 es la versión principal.
+6 es la versión menor.
+32 es el número de revisión.
+
+El tipo de versionado cambio a: 
+
+• A: Denota version. Cambia con menor frecuencia. En 1994
+(version 1.0) y en 1996 (version 2.0)
+• B: Denota mayor revision. Antes de la version 2.6, los
+numeros impares indicaban desarrollo, los pares produccion
+• C: Denota menor revision. Solo cambia cuando hay nuevosdrivers o caracterısticas
+• D: Cambia cuando se corrige un grave error sin agregar nueva funcionalidad ← Casi no se usa en las ramas 3.x y 4.x, viendose reflejado en C
+
+
+(d) ¿Es posible tener más de un Kernel de GNU/Linux instalado en la misma máquina? 
+Sí, es posible tener más de un kernel de GNU/Linux instalado en la misma máquina. Esta práctica es común y útil por varias razones, como la prueba de nuevas versiones del kernel, la compatibilidad con diferentes hardware o la necesidad de solucionar problemas.
+
+(e) ¿Dónde se encuentra ubicado dentro del File System?
+Los archivos principales del kernel, como la imagen del kernel, los archivos de configuración, y los módulos, se encuentran en el directorio /boot y en /lib/modules del sistema de archivos. Estas ubicaciones permiten al sistema y al gestor de arranque acceder y manejar el kernel y sus componentes durante el arranque y la operación normal del sistema.
+
+(f) ¿El Kernel de GNU/Linux es monolítico? Justifique.
+Si, el Kernel de GNU / Linux , es monotolitico. 
+Un kernel monolítico es una arquitectura de núcleo en la que todo el código del sistema operativo, incluidos los controladores de hardware, el sistema de archivos, y otros servicios esenciales, se ejecuta en el espacio del núcleo (kernel space).El kernel monolítico agrupa la mayor parte del sistema operativo en una sola pieza de código ejecutado en el núcleo.
+
+5. Intérprete de comandos (Shell)):
+(a) ¿Qué es?
+Explicacion de la catedra: 
+El interprete de comandos, o tambien conocido como CLI ( Command Line Interface ), es el modo de comunicacion entre el S.O y el usuario. Ejecuta programas a partir del ingreso de comandos. 
+Explicacion de internet: El intérprete de comandos, comúnmente conocido como shell en sistemas Unix y GNU/Linux, es un programa que actúa como una interfaz entre el usuario y el sistema operativo. Permite a los usuarios interactuar con el sistema a través de una línea de comandos, en lugar de utilizar una interfaz gráfica de usuario (GUI). El shell interpreta los comandos que el usuario ingresa, los procesa y ejecuta, y luego muestra los resultados en la pantalla.
+
+b) ¿Cuáles son sus funciones?
+Entre algunas de sus funciones se encuentran: 
+Interfaz de Línea de Comandos ==> Entrada y Ejecución de Comandos: Permite al usuario ingresar comandos en forma de texto y ejecutarlos.
+Scripting y Automatización: Los scripts son secuencias de comandos que automatizan tareas repetitivas o complejas. 
+Gestion de procesos ==>  Ejecucion en segundo plano: Permite ejecutar comandos y procesos en segundo plano, permitiendo usar la terminal mientras el proceso sigue ejecutandose.
+Seguridad ==> Control de acceso: Puede gestionar permisos y restricciones en la ejecucion de comandos y scripts. Tambien facilita la ejecucion de comandos con privilegios elevados (como sudo)
+
+(c) Mencione al menos 3 intérpretes de comandos que posee GNU/Linux y compárelos entre ellos.
+
+Bash: Es el intérprete de comandos predeterminado en la mayoría de las distribuciones de GNU/Linux.
+Caracteristicas: 
+Compatibilidad: Compatible con scripts escritos para el Bourne Shell (sh) y ofrece muchas mejoras.
+Scripting Avanzado: Soporte para programación avanzada, incluyendo bucles, condicionales y funciones.
+
+Zsh: Es un shell interactivo y de scripting que ofrece una serie de características avanzadas no presentes en otros shells.
+Caracteristicas: 
+Completado Automático Mejorado: Completado de comandos y nombres de archivos más inteligente y flexible, con opciones de autocompletado extensas.
+Corrección de Comandos: Capacidad para corregir automáticamente errores en los comandos escritos.
+
+Fish: Es un shell diseñado para ser amigable y fácil de usar, con un enfoque en la facilidad de uso y la interacción amigable.
+Caracteristicas: 
+Sintaxis Amigable: La sintaxis de Fish es más fácil de aprender y usar, con características de scripting más intuitivas.
+Interfaz de Usuario: Ofrece una interfaz interactiva intuitiva y visualmente atractiva.
+
+Conclusion: Bash ofrece la mayor compatibilidad con scripts y comandos. Fish es facil de usar pero puede no ser compatible con todos los scripts de bash sin modificaciones.
+
+(d) ¿Dónde se ubican (path) los comandos propios y externos al Shell?
+Comandos propios del Shell: Los comandos internos (o "built-ins") del shell son parte del propio intérprete de comandos y no se encuentran como archivos independientes en el sistema de archivos. Estos comandos se ejecutan directamente dentro del proceso del shell.
+Comandos externos: Los comandos externos son programas independientes ubicados en diferentes directorios del sistema. Algunos de los directorios más comunes donde se encuentran estos comandos son:
+/bin: Contiene binarios esenciales para el sistema, como ls, cp, mv.
+/usr/bin: Contiene la mayoría de los comandos de usuario, como vim, grep.
+/sbin y /usr/sbin: Contienen comandos administrativos y de superusuario, como ifconfig y fdisk.
+El shell utiliza la variable de entorno PATH para buscar los comandos externos. Esta variable contiene una lista de directorios en los que el shell buscará los comandos que se ingresan.
+
+(e) ¿Por qué considera que el Shell no es parte del Kernel de GNU/Linux?
+
+El shell no es parte del kernel porque se ejecuta en el espacio de usuario (user space), mientras que el kernel opera en el espacio de kernel (kernel space). Esta separación es fundamental en la arquitectura de los sistemas operativos modernos:
+El kernel gestiona directamente el hardware y los recursos del sistema, mientras que el shell proporciona una interfaz para que los usuarios interactúen con el sistema operativo sin involucrarse directamente con las operaciones a nivel de kernel.
+
+(f)¿Es posible definir un intérprete de comandos distinto para cada usuario? ¿Desde dónde se define? ¿Cualquier usuario puede realizar dicha tarea?
+Sí, en GNU/Linux es posible definir un intérprete de comandos distinto para cada usuario. El intérprete de comandos, también conocido como "shell", se especifica en el archivo /etc/passwd del sistema.
+
+El archivo /etc/passwd es un archivo de texto que contiene información básica sobre las cuentas de usuario del sistema, como el nombre de usuario, el ID del usuario, el ID del grupo, el directorio de inicio, y la shell asignada al usuario. Cada línea en este archivo representa un usuario y tiene el siguiente formato:nombre_usuario:x:UID:GID:comentario:directorio_home:shell
+
+El último campo de cada línea indica el intérprete de comandos o shell predeterminado para ese usuario. Por ejemplo:gianca:x:1000:1000::/home/gianca:/bin/bash.
+En este caso el intérprete de comandos asignado al usuario "gianca" es /bin/bash.
+
+¿Cómo se puede cambiar?
+Los usuarios con privilegios de superusuario (root) pueden editar este archivo directamente o usar el comando chsh (change shell) para cambiar la shell de un usuario en particular:
+
+Para cambiar la shell de otro usuario (requiere permisos de root):
+sudo chsh -s /ruta/a/nueva_shell nombre_usuario
+
+¿Cualquier usuario puede realizar esta tarea?
+No, no cualquier usuario puede realizar esta tarea para cualquier usuario. Los usuarios pueden cambiar su propia shell utilizando el comando chsh, pero para cambiar la shell de otros usuarios, se necesitan privilegios de superusuario (root). Además, la shell debe estar en la lista de shells permitidos, la cual suele estar definida en el archivo /etc/shells.
+
+6: Sistema de Archivos (File System)
+(a) ¿Qué es?
+Un sistema de archivos (File System) es la estructura y el método que utiliza un sistema operativo para almacenar, organizar y gestionar los archivos en un dispositivo de almacenamiento, como un disco duro o una unidad SSD. Un sistema de archivos define cómo se guardan los datos en el dispositivo, cómo se organizan en directorios y cómo se accede a ellos mediante nombres de archivo. 
+
+En GNU/Linux, el sistema de archivos tiene una estructura jerárquica de directorios, donde todos los archivos y directorios parten de un único punto llamado raíz (/).
+
+(b) Mencione sistemas de archivos soportados por GNU/Linux.
+
+ext4 (Fourth Extended Filesystem):Ofrece buenas prestaciones en términos de rendimiento y confiabilidad, además de soporte para grandes volúmenes de datos.
+
+Btrfs (B-tree File System): Conocido por sus capacidades avanzadas, como la creación de instantáneas (snapshots), compresión de datos, y mejoras en la gestión de volúmenes.
+
+XFS: Diseñado para escalabilidad y rendimiento en sistemas de alto rendimiento, como servidores. Es altamente eficiente en la manipulación de archivos grandes y cargas de trabajo intensivas.
+
+(c) ¿Es posible visualizar particiones del tipo FAT y NTFS en GNU/Linux?
+
+Sí, es posible visualizar y acceder a particiones del tipo FAT (FAT16, FAT32, exFAT) y NTFS en GNU/Linux.
+
+Son comúnmente utilizadas en sistemas Windows, pero GNU/Linux tiene soporte completo para ambos tipos de sistemas de archivos.
+FAT: 
+Acceso a particiones FAT16/FAT32:
+Las particiones FAT16 y FAT32 son soportadas nativamente por el kernel de Linux. Se pueden montar y acceder directamente sin necesidad de instalar software adicional.
+ejemplo: sudo mount -t vfat /dev/sdXN /mnt
+Donde /dev/sdXN es la partición que se desea montar (por ejemplo, /dev/sda1
+
+NTFS: 
+Las particiones NTFS también son soportadas en GNU/Linux, principalmente a través del controlador ntfs-3g, que permite tanto lectura como escritura en particiones NTFS.
+ejemplo: sudo mount -t ntfs-3g /dev/sdXN /mnt
+
+(d) ¿Cuál es la estructura básica de los File System en GNU/Linux? Mencione los directorios más importantes e indique qué tipo de información se encuentra en ellos. ¿A qué hace referencia la sigla FHS?
+La estructura básica de un sistema de archivos en GNU/Linux sigue un formato jerárquico, donde todo parte del directorio raíz (/). A continuación, se describen algunos de los directorios más importantes:
+
+/: El directorio raíz. Contiene todos los archivos y subdirectorios del sistema.
+/bin: Contiene binarios esenciales del sistema que son necesarios para el arranque y operación básica del sistema. Ejemplos incluyen ls, cp, mv.
+/boot: Almacena los archivos necesarios para el arranque del sistema, incluyendo el kernel (vmlinuz) y los archivos del gestor de arranque (como GRUB).
+/etc: Contiene archivos de configuración del sistema y de los programas instalados. Ejemplos incluyen archivos de configuración de red, servicios, y el archivo passwd.
+/home: Directorio donde se encuentran los directorios personales de los usuarios. Cada usuario tiene su propio directorio, como /home/usuario.
+/lib: Contiene bibliotecas compartidas necesarias para los binarios esenciales ubicados en /bin y /sbin.
+/mnt: Punto de montaje temporal para sistemas de archivos. Generalmente se usa para montar particiones de manera manual.
+/opt: Contiene aplicaciones opcionales instaladas en el sistema. Este directorio se usa para programas que no forman parte de la instalación estándar.
+/sbin: Contiene binarios esenciales para tareas administrativas del sistema, como fdisk, ifconfig, etc. Estos comandos suelen estar restringidos a root o a usuarios con privilegios.
+/usr: Contiene aplicaciones y utilidades adicionales del sistema, incluidas las bibliotecas, binarios y documentación.
+/var: Contiene archivos variables, como logs del sistema, datos de aplicaciones que cambian con frecuencia, y colas de impresión.
+/dev: Contiene archivos de dispositivos que representan hardware del sistema, como discos (/dev/sda), terminales (/dev/tty), etc.
+/proc: Sistema de archivos virtual que contiene información sobre los procesos en ejecución y el estado del kernel.
+
+FHS
+La sigla FHS hace referencia a Filesystem Hierarchy Standard (Estándar de Jerarquía del Sistema de Archivos). FHS tiene como objetivo garantizar la interoperabilidad y consistencia entre diferentes distribuciones de GNU/Linux, proporcionando una organización estándar para los archivos del sistema.
+
+Punto 7: Particiones
+(a) Definición. Tipos de particiones. Ventajas y Desventajas.
+
+Una partición es una división lógica de un disco duro o unidad de almacenamiento que permite al sistema operativo gestionar y organizar los datos de manera eficiente. Un disco puede contener una o más particiones, cada una con su propio sistema de archivos.
+
+Tipos de particiones
+Primarias:
+Son las particiones principales que pueden contener sistemas de archivos y desde las cuales se puede iniciar el sistema operativo.
+Ventajas: Permiten el arranque del sistema operativo.
+Desventajas: El número de particiones primarias está limitado a cuatro en el esquema de particionamiento MBR.
+
+Extendidas:
+Una partición extendida es un contenedor que puede albergar múltiples particiones lógicas. Solo puede haber una partición extendida en un disco.
+Ventajas: Permite superar la limitación de cuatro particiones primarias en MBR.
+Desventajas: No se puede arrancar directamente desde una partición extendida.
+
+Lógicas:
+Son particiones que se encuentran dentro de una partición extendida. Funcionan como si fueran primarias, pero no pueden ser utilizadas para el arranque directo del sistema.
+Ventajas: Permiten una mayor flexibilidad en la cantidad de particiones.
+Desventajas: Requieren la existencia de una partición extendida.
+
+
+Ventajas de las particiones:
+Organización de datos: Facilitan la separación de datos del sistema operativo, lo que mejora la seguridad y la gestión.
+Multi-sistema operativo: Permiten la instalación de múltiples sistemas operativos en un mismo disco.
+Mantenimiento: Facilitan el formateo y reinstalación del sistema operativo sin afectar los datos personales.
+Desventajas:
+Complejidad en la gestión: Requiere un entendimiento claro de las necesidades del sistema para planificar el particionamiento de manera efectiva.
+
+(b) ¿Cómo se identifican las particiones en GNU/Linux? (Considere discos IDE, SCSI y SATA).
+
+Las particiones se identifican mediante nombres de dispositivo que dependen del tipo de controlador del disco:
+
+IDE: Los discos IDE se identifican como /dev/hda, /dev/hdb, etc. Las particiones en estos discos se numeran como /dev/hda1, /dev/hda2, y así sucesivamente.
+SCSI y SATA: Los discos SCSI y SATA se identifican como /dev/sda, /dev/sdb, etc. Las particiones en estos discos se numeran como /dev/sda1, /dev/sda2, etc.
+
+(c) ¿Cuántas particiones son necesarias como mínimo para instalar GNU/Linux? Nómbrelas indicando tipo de partición, identificación, tipo de File System y punto de montaje.
+Para instalar GNU/Linux se requieren al menos dos particiones:
+
+Partición raíz (/):
+Tipo de partición: Primaria o lógica.
+Identificación: /dev/sda1 (ejemplo).
+Tipo de File System: ext4 (u otro sistema de archivos soportado).
+Punto de montaje: /.
+Función: Contiene todos los archivos del sistema operativo y los programas instalados.
+
+Partición de intercambio (swap):
+Tipo de partición: Primaria o lógica.
+Identificación: /dev/sda2 (ejemplo).
+Tipo de File System: swap.
+Función: Se utiliza como memoria virtual cuando la RAM física está completa. Ayuda en la gestión de procesos y mejora la estabilidad del sistema.
+Opcionalmente, se puede agregar una partición para /home, que contiene los datos y configuraciones de los usuarios, permitiendo una separación clara entre los archivos del sistema y los datos personales.
+
+(d) Ejemplifique diversos casos de particionamiento dependiendo del tipo de tarea que se deba realizar en su sistema operativo.
+
+Servidor web:
+/: (Raíz) – 20 GB.
+/var: (Datos de aplicaciones web, logs) – 50 GB.
+/home: (Datos de usuarios) – 10 GB.
+swap: – Tamaño equivalente a la RAM o 1.5 veces.
+
+Sistema de escritorio general:
+/: (Raíz) – 30 GB.
+/home: (Archivos personales) – Resto del espacio disponible.
+swap: – Tamaño equivalente a la RAM.
+
+Sistema de pruebas y desarrollo:
+/: (Raíz) – 50 GB.
+/home: (Datos personales) – 100 GB.
+/opt: (Software adicional y herramientas de desarrollo) – 50 GB.
+swap: – Tamaño equivalente a la RAM o 1.5 veces.
+
+(e) ¿Qué tipo de software para particionar existe? Menciónelos y compare.
+
+GParted:
+Descripción: Es una interfaz gráfica para parted, una herramienta de particionamiento. Permite crear, eliminar, redimensionar y mover particiones de manera intuitiva.
+Ventajas: Fácil de usar, compatible con una gran cantidad de sistemas de archivos.
+Desventajas: Necesita un entorno gráfico.
+
+fdisk:
+Descripción: Es una herramienta de línea de comandos para gestionar particiones en discos con particionamiento MBR.
+Ventajas: Ligero y accesible desde la terminal.
+Desventajas: No soporta particiones GPT y carece de una interfaz gráfica.
+
+parted:
+Descripción: Similar a fdisk, pero con soporte para GPT y una interfaz más avanzada para el manejo de particiones.
+Ventajas: Soporta discos GPT, puede redimensionar particiones sin pérdida de datos.
+Desventajas: Línea de comandos, lo que puede ser intimidante para principiantes.
+
+cfdisk:
+Descripción: Una versión de fdisk con una interfaz de usuario basada en texto que facilita la creación y modificación de particiones.
+Ventajas: Interfaz de texto amigable.
+Desventajas: Similar a fdisk, no soporta GPT.
+
+Punto 8: Arranque (bootstrap) de un Sistema Operativo
+(a) ¿Qué es el BIOS? ¿Qué tarea realiza?
+
+El BIOS (Basic Input/Output System) es un firmware de bajo nivel que se ejecuta al encender una computadora. Su principal tarea es inicializar y verificar el hardware del sistema, como la CPU, la RAM y los dispositivos de almacenamiento, y luego iniciar el cargador de arranque (bootloader) desde el dispositivo de arranque principal (disco duro, unidad USB, etc.) que se encarga de iniciar el sistema operativo.
+
+(b) ¿Qué es UEFI? ¿Cuál es su función?
+
+El UEFI (Unified Extensible Firmware Interface) es el sucesor del BIOS, proporcionando una interfaz de firmware más moderna y funcional. UEFI realiza las mismas tareas que el BIOS, pero con mejoras como:
+
+Soporte para discos de mayor tamaño (más de 2 TB).
+Tiempo de arranque más rápido.
+Interfaz gráfica en lugar de solo texto.
+Mejor soporte de seguridad, como Secure Boot.
+
+(c) ¿Qué es el MBR? ¿Qué es el MBC?
+
+MBR (Master Boot Record): Es el primer sector de un disco duro que contiene la tabla de particiones y el código de arranque necesario para iniciar el sistema operativo.
+
+MBC (Master Boot Code): Es el código de arranque almacenado en el MBR que se ejecuta durante el proceso de inicio para cargar el gestor de arranque y, posteriormente, el sistema operativo.
+
+(d) ¿A qué hacen referencia las siglas GPT? ¿Qué sustituye? Indique cuál es su formato.
+GPT (GUID Partition Table) es un esquema de particionamiento que reemplaza al MBR. A diferencia del MBR, GPT soporta discos de mayor tamaño y un número casi ilimitado de particiones. Utiliza identificadores únicos globales (GUID) para identificar las particiones.
+
+Formato: GPT almacena múltiples copias de la tabla de particiones a lo largo del disco, lo que lo hace más robusto en caso de corrupción de datos. También utiliza un CRC (Cyclic Redundancy Check) para verificar la integridad de la tabla de particiones.
+
+(e) ¿Cuál es la funcionalidad de un “Gestor de Arranque”? ¿Qué tipos existen? ¿Dónde se instalan? Cite gestores de arranque conocidos.
+Un gestor de arranque (bootloader) es un software responsable de cargar el sistema operativo en la memoria RAM y darle control del sistema cuando la computadora arranca. Este software se encuentra en la primera etapa del proceso de inicio, justo después de la ejecución del BIOS o UEFI.
+
+Funcionalidades:
+Cargar el kernel del sistema operativo en la memoria.
+Permitir seleccionar entre diferentes sistemas operativos (en caso de sistemas dual-boot).
+Pasar parámetros al kernel del sistema operativo.
+
+Tipos de gestores de arranque:
+
+GRUB (GRand Unified Bootloader):
+Descripción: Es uno de los gestores de arranque más comunes en sistemas GNU/Linux. Soporta múltiples sistemas operativos y es altamente configurable.
+Instalación: Generalmente se instala en el MBR (en sistemas BIOS) o en la partición de arranque EFI (en sistemas UEFI).
+
+LILO (LInux LOader):
+Descripción: Un gestor de arranque más antiguo que GRUB, que ha caído en desuso. Ofrece menos características y flexibilidad en comparación con GRUB.
+Instalación: Se instala en el MBR o en el primer sector de una partición.
+
+Syslinux/Extlinux:
+Descripción: Un conjunto de gestores de arranque que se utiliza principalmente para medios extraíbles, como unidades USB o discos de arranque en red.
+Instalación: Puede instalarse en el MBR o en una partición específica.
+
+
+(f) ¿Cuáles son los pasos que se suceden desde que se prende una computadora hasta que el Sistema Operativo es cargado (proceso de bootstrap)?
+El proceso de arranque de un sistema operativo, conocido como bootstrap, sigue estos pasos generales:
+
+1: Power-On Self Test (POST): Al encender la computadora, el BIOS o UEFI realiza una serie de pruebas para verificar el hardware básico del sistema (CPU, RAM, dispositivos de almacenamiento, etc.).
+
+2: Carga del firmware (BIOS/UEFI): Una vez completado el POST, el BIOS o UEFI busca el dispositivo de arranque (disco duro, unidad USB, etc.) especificado en la configuración.
+
+3: Carga del gestor de arranque: El BIOS/UEFI carga el gestor de arranque desde el dispositivo de arranque. En sistemas BIOS, se lee el código del MBR; en sistemas UEFI, se busca el gestor de arranque en la partición EFI.
+
+4: Selección del sistema operativo: Si hay múltiples sistemas operativos instalados, el gestor de arranque muestra un menú para seleccionar uno. Si solo hay un sistema operativo, el gestor de arranque lo carga automáticamente.
+
+5: Carga del kernel: El gestor de arranque carga el kernel del sistema operativo seleccionado en la memoria y le transfiere el control.
+
+6: Inicialización del kernel: El kernel inicializa el hardware del sistema, monta el sistema de archivos raíz, y lanza el proceso init o systemd, que luego inicia todos los servicios necesarios para arrancar el sistema operativo completamente.
+
+7: Carga del entorno de usuario: Una vez que el kernel ha completado su inicialización, el sistema de inicio lanza los servicios de usuario y, en el caso de sistemas de escritorio, carga el entorno gráfico o la terminal de comandos.
+
+
+(g) Analice el proceso de arranque en GNU/Linux y describa sus principales pasos.
+
+El proceso de arranque en GNU/Linux sigue los siguientes pasos:
+Inicialización del BIOS/UEFI: Se ejecuta el firmware del sistema, que realiza las pruebas de hardware (POST) y busca el gestor de arranque en el dispositivo de arranque configurado.
+
+Gestor de arranque: El gestor de arranque (como GRUB) carga y ejecuta el kernel de GNU/Linux en la memoria.
+
+Carga del kernel: El kernel de GNU/Linux se carga en la memoria y toma control del sistema. Durante esta etapa, el kernel detecta y configura el hardware, y luego monta el sistema de archivos raíz especificado.
+
+Inicialización del sistema: Después de montar el sistema de archivos raíz, el kernel lanza el primer proceso de usuario (init o systemd), que se encarga de iniciar todos los servicios y demonios necesarios para el funcionamiento del sistema operativo.
+
+Login: Finalmente, el sistema presenta la pantalla de inicio de sesión o el entorno gráfico de escritorio, permitiendo al usuario interactuar con el sistema.
+
+(h) ¿Cuáles son los pasos que se suceden en el proceso de parada (shutdown) de GNU/Linux?
+El proceso de apagado de un sistema GNU/Linux sigue estos pasos:
+
+Solicitud de apagado: El usuario o el sistema emite un comando para apagar el sistema (shutdown, halt, poweroff, etc.).
+
+Notificación a los procesos: systemd o el sistema de inicio correspondiente notifica a todos los procesos en ejecución para que se detengan de manera ordenada. Se les envía la señal SIGTERM, permitiéndoles cerrar archivos y liberar recursos.
+
+Detención de servicios: Todos los servicios y demonios del sistema se detienen uno por uno. Los sistemas de archivos se desmontan y los dispositivos se sincronizan.
+
+Detención del kernel: Una vez que todos los servicios han sido detenidos y los sistemas de archivos desmontados, el kernel apaga la CPU y otros componentes del hardware, completando el proceso de apagado.
+
+Apagado físico: Finalmente, el hardware de la máquina se apaga completamente.
+
+(i) ¿Es posible tener en una PC GNU/Linux y otro Sistema Operativo instalado? Justifique.
+Sí, es posible tener en una PC GNU/Linux junto con otro sistema operativo (como Windows o macOS) en una configuración conocida como dual-boot o multi-boot. Esto se logra particionando el disco para que cada sistema operativo tenga su propia partición dedicada. El gestor de arranque, como GRUB, se encarga de gestionar el proceso de arranque, permitiendo al usuario seleccionar cuál sistema operativo cargar al iniciar la computadora.
+
+La justificación para utilizar un sistema de arranque dual podría incluir la necesidad de utilizar software específico para cada sistema operativo o la preferencia por un entorno diferente según la tarea en cuestión.
+
+9. Archivos:
+(a) ¿Cómo se identifican los archivos en GNU/Linux?
+
+En GNU/Linux, los archivos se identifican principalmente a través de su nombre y su ruta en el sistema de archivos. A diferencia de otros sistemas operativos, GNU/Linux no depende de las extensiones de archivo para identificar el tipo de archivo, aunque las extensiones se utilizan comúnmente para indicar el formato del archivo.
+
+Formas de identificar archivos
+Nombres de archivo y rutas: 
+Ruta absoluta: Especifica la ubicación completa del archivo desde el directorio raíz /. Ejemplo: /home/gianca/documento.txt.
+
+Ruta relativa: Especifica la ubicación del archivo en relación con el directorio actual. Ejemplo: documento.txt o ../documento.txt.
+
+Identificación por permisos y atributos: 
+Permisos de lectura (r): Indica si se puede leer el contenido del archivo.
+Permisos de escritura (w): Indica si se puede modificar el archivo.
+Permisos de ejecución (x): Indica si se puede ejecutar el archivo como un programa.
+
+Inodos y estructura de archivos:
+Inodo (i-node): Cada archivo en GNU/Linux se identifica internamente por un número de inodo, que almacena la metadata del archivo (permisos, propietario, tamaño, etc.), aunque no almacena el nombre del archivo en sí.
+Los inodos permiten al sistema acceder al archivo en el sistema de archivos sin depender del nombre del archivo.
+
+(b) Investigue el funcionamiento de los editores vi y mcedit, y los comandos cat y more.
+
+Vi : Es un editor de texto muy popular en sistemas Unix y GNU/Linux. Es un editor modal, lo que significa que tiene diferentes modos de operación, principalmente modo de comando y modo de inserción. 
+Abrir un archivo en vi: vi archivo.txt
+Cambiar al modo de inserción: Presiona i.
+Guardar cambios y salir: En el modo de comando, escribe :wq y presiona Enter.
+Salir sin guardar: Escribe :q! y presiona Enter.
+Navegar en el archivo:
+h, j, k, l: Moverse a la izquierda, abajo, arriba, derecha.
+gg: Ir al principio del archivo.
+G: Ir al final del archivo.
+Eliminar texto:
+dd: Elimina la línea actual.
+x: Elimina el carácter bajo el cursor.
+Buscar texto: Escribe /palabra y presiona Enter.
+
+mcedit : Es un editor de texto simple y amigable que forma parte de Midnight Commander (una herramienta de gestión de archivos de texto). Es más fácil de usar que vi para principiantes y tiene una interfaz gráfica en modo texto.
+
+Comandos comunes:
+Guardar: F2
+Salir: F10
+Cortar/copy/pegar: Usa las teclas de función para manipular texto (por ejemplo, F3 para cortar).
+Abrir un archivo: mcedit archivo.txt
+
+COMANDO CAT: cat (concatenate) es un comando que se usa para visualizar el contenido de archivos o concatenar varios archivos en uno solo.
+Ejemplos:
+ Mostrar el contenido de un archivo ==> cat archivo.txt
+ Concatenar archivos ==> cat archivo1.txt archivo2.txt > archivo_combinado.txt
+
+COMANDO MORE: more es un comando que permite visualizar el contenido de un archivo de texto de manera paginada, lo cual es útil para archivos largos.
+Ejemplo: 
+	Mostrar archivo ==> more archivo.txt
+Navegación en more:
+Espacio: Avanza una página.
+Enter: Avanza una línea.
+q: Salir del comando.
+
+(c). HACER 
+
+
+d) Investigue el funcionamiento del comando file. Pruébelo con diferentes archivos. ¿Qué diferencia nota?
+El comando file es una herramienta poderosa en GNU/Linux para identificar con precisión el tipo de archivo, independientemente de su nombre o extensión. Al probarlo con diferentes archivos, notarás que es capaz de reconocer varios tipos de archivos y ofrecer detalles adicionales, lo que lo hace ideal para diagnosticar y trabajar con archivos en el sistema.
+
+Diferencias: 
+
+Análisis basado en contenido: file no se limita a identificar archivos por su extensión, sino que realmente examina su contenido. Por ejemplo, si renombramos un archivo JPEG a imagen.txt, file aún lo identificará como una imagen JPEG.
+
+Detalles adicionales: Para ciertos tipos de archivos, como imágenes y ejecutables, file proporciona detalles adicionales. Por ejemplo, en el caso de imágenes, muestra el formato, la resolución y la versión, mientras que en ejecutables proporciona información sobre la arquitectura y el tipo de enlace.
+
+10)  Indique qué comando es necesario utilizar para realizar cada una de las siguientes acciones. Investigue su funcionamiento y parámetros más importantes
+
+(a) Cree la carpeta ISO2017 ()
+Este comando crea un nuevo directorio "ISO2017". Con el parámetro -p se pueden crear directorios padre intermedios si no existen. 
+Resolucion: mkdir ISO2017 
+
+(b) Acceda a la carpeta (cd)
+El comando cd (change directory) permite movernos entre directorios.
+Resolución: cd ISO2017 
+
+(c) Crear dos archivos con los nombres iso2017-1 e iso2017-2 (touch):
+El comando touch crea archivos vacíos o actualiza la fecha de modificación de archivos existentes. 
+Resolución: touch iso2017-1 iso2017-2
+
+(d) Listar el contenido del directorio actual (ls):
+El comando ls lista el contenido del directorio actual
+Resolucion: ls 
+Algunos parametros utiles son: 
+-l: Muestra una lista detallada.
+-a: Muestra todos los archivos, incluidos los ocultos.
+-h: Formato legible para humanos (para tamaños de archivo).
+
+(e) Visualizar la ruta donde estoy situado (pwd)
+El comando pwd (print working directory) muestra la ruta completa del directorio actual. 
+Resolucion: pwd
+
+(f) Busque todos los archivos en los que su nombre contiene la cadena “iso*” (find)
+El comando find busca archivos y directorios
+
+"." Especifica el directorio actual
+"-name busca por nombre de archivo"
+Resolucion: find . -name "iso*"
+
+(g) Informar la cantidad de espacio libre en disco:
+df (Disk Free) muestra el uso del espacio en disco.
+
+"-h" muestra informacion en un formato legible para humanos (GB,MB)
+
+Resolucion: df -h
+
+(h) Verificar los usuarios conectados al sistema:
+el comando who muestra una lista de los usuarios actualmente conectados al sistema. 
+
+Resolucion: who
+
+(i) Acceder al archivo iso2017-1 e ingresar Nombre y Apellido:
+echo envia el texto proporcionado a un arhcivo
+con " > "se sobreescribe el contenido
+
+Resolucion: echo "Gianluca Cardone" > iso2017-1
+
+(j) Mostrar en pantalla las últimas líneas de un archivo:
+tail muestra las ultimas líneas de un archivo
+Un parámetro util puede ser -n: Especifica cuántas líneas finales mostrar, por ejemplo, tail -n 5 para mostrar las últimas 5 líneas.
+
+Resolución: tail iso2017-1
+
+
+Probar 9c y 9d 

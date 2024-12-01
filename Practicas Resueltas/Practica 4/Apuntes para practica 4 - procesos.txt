@@ -1,0 +1,508 @@
+falta: 16,17,18,20. Completarlos. 
+
+
+PARA EL DIAGRAMA, LO PRIMERO ES MARCAR SIEMPRE LA LLEGADA DE LOS PROCESOS. 
+El orden por el cual se encolan la primera vez los procesos en la r queue, depende de la llegada del proceso, debemos fijarnos en la columna llega. 
+
+Tiempo de retorno: desde que empieza hasta que termina: Limt superios - Lim inferior - 1 
+o la misma formula pero explicada según el diagrama seria: 
+tiempo donde finalizo - tiempo donde empezó (el proceso), + 1 
+
+Tiempo de espera: TR - CPU, o también puede hacerse contando las casillas vacias. 
+
+En los algoritmos FCFS y SJF no importa la prioridad. 
+LOS PROCESOS SE EJECUTAN ENTEROS, YA QUE NO SON ALGORITMOS APROPIATIVOS. 
+
+
+
+
+Para diagrama: 
+Marcar la llegada de los procesos con > 
+
+Para calcular la cantidad de columnas, sumamos la cantidad de tiempo de CPU. 
+
+
+en cada uno de los tiempo de los cpu, lo ideal seria verificiar si hay algun proceso que tenga mas prioridad, en el caso de algoritmos apropiativos, o en los casos que tengan caracteristicas que hagan que se deje de ejecutar un proceso y empiece a ejecutar otro. 
+Esto en FCFS no va a pasar. Por ende el algoritmo FCFS es facil 
+El FCFS ejecuta los procesos a medida que van llegando, es decir, en orden.
+EN FCFS, como el algoritmo no es apropiativo, cada algoritmo se va a ejecutar hasta el final.
+
+ tiempo de retorno: Tiempo desde que llego el proceso a R QUEUE, hasta que finalizo el proceso completamente.
+ Ttiempo de espera: Tiempo que tuvo que esperar para ser ejecutado. 
+
+Para chequear que el tiempo de espera este bien, podemos hacer: 
+Tiempo de Retorno (TR) - CANT CPU proceso
+
+Tiempo de retorno = Limite superior - limite inferior + 1
+
+Los proceso que sean CPU bound, vamos a necesitar que tenga un TR lo mas bajo posible para que termine el calculo lo mas rapido posible
+Los procesos que son I/O bound, nos conviene tener un tiempo de espera lo mas bajo posible. 
+
+
+SJF:
+
+En algoritmos SJF: La R QUEUE (cola) no es tan importante, porque van a competir entre los procesos mediante el tiempo de CPU, el algoritmo SJF selecciona el proceso con menor tiempo de CPU 
+
+
+RR CON TIMER VARIABLE Y QUANTUM=4
+Segun el quantum, se le asigna esa cantidad de tiempo de cpu a cada proceso, si el proceso termina y sobran unidades de quantum, no pasa nada, continua con la ejecucion de los demas procesos que esten en la  QUEUE.
+En RR, siempre que un proceso termine su quantum y no haya finalizado en su totalidad, se vuelve a encolar en la R QUEUE para que pueda asignarse tiempo de cpu para finalizar el proceso. Un proceso de puede encolar tantas veces como sea necesario para que finalice. 
+
+RR con Timer Fijo: 
+Significa que si tenemos por ejemplo un quantum=4, y a un proceso le sobran unidades de quantum, el siguiente proceso va a ejecutarse con esa cantidad que faltó para terminar el quantum, es decir, hasta llevar el valor del quantum a 0, una vez que el quantum llega a 0, si el proceso todavía no finalizo, se vuelve a encolar.
+con rr de timer fijo
+En el diagrama, podemos marcar la cantidad de quantum (para saber cuando se realiza el context switch) 
+
+
+RR de timer variable vs RR de timer fijo: 
+RR de timer variable: Cada proceso va a tener una cantidad asignada de quantun. (Si a un proceso le sobra quantum, el proceso que se ejecute siguiente, no se vera afectado por el quantum restante, sino que cada proceso tiene el mismo quantum asignado.)
+
+RR de timer fijo: Cada proceso va a tener una cantidad asignada de quantum, pero si a un proceso le sobra quantum, el siguiente proceso va a tener que usar esas unidades de quantum sobrantes, una vez que el quantum llega a 0, se genera un cambio de contexto (context switch), el cual si el proceso que llego a quantum=0,no finalizó, se encola, y se atiende el siguiente proceso en ejecución, con las unidades de quantum asignadas. 
+
+Algoritmo de prioridades: 
+En este tipo de algoritmos, se generan la cantidad de colas (queue) dependiendo de las prioridades distintas que haya, es decir, una cola por cada numero de prioridad. 
+
+El algoritmo de prioridades: Menor numero de prioridad, mayor prioridad de ejecución. 
+En este algoritmo, siempre se desencolan desde las primeras colas. 
+Este algoritmo es apropiativo.
+
+SRTF: Es la version apropiativa del SJF, ejecuta el proceso con la siguiente ráfaga de cpu restante menor.
+
+11) 
+
+Round Robin ofrece mayor equidad entre los procesos, pero puede ser ineficiente debido al alto costo de cambios de contexto.
+
+SRTF optimiza el tiempo promedio de finalización, pero puede causar inanicion en procesos ligados a CPU,al favorecer excesivamente a los procesos cortos.
+
+1: 
+(a) Programa y Proceso:
+ Un programa es un conjunto de instrucciones almacenadas en un archivo. Un programa es estatico, no tiene program counter, existe desde que se edita hasta que se borra, 
+ mientras que un proceso es la instancia activa de un programa en ejecución, con sus recursos y estado en memoria.
+Un proceso es dinamico, tiene program counter, su ciclo de vida comprende desde que se lo ejecuta hasta que termina .
+
+(b) Tiempo de retorno (TR): Es el tiempo total desde que un Job/Proceso entra en el sistema hasta que completa su ejecucion.
+Tiempo de espera (TE): Es el tiempo que un Job/Proceso pasa esperando en cola antes de que empiece su ejecución.
+
+(c) Tiempo Promedio de Retorno (TPR): Es el promedio del tiempo de retorno de todos los Jobs en un lote.
+Tiempo Promedio de Espera (TPE): Es el tiempo que el proceso se encuentra en el sistema
+ esperando, es decir el tiempo que pasa sin ejecutarse. 
+
+(d) Quantum: Es el intervalo de tiempo asignado a cada proceso en un algoritmo de scheduling de Round Robin,
+ tras el cual, si el proceso sigue en ejecución, se suspende para dar paso a otro.
+
+ Quantum (Q): medida que determina cuanto tiempo podra usar el procesador cada proceso:
+
+
+(e) Algoritmo de Scheduling Apropiativo (Preemptive) o No Apropiativo (Non-Preemptive):
+
+Un algoritmo es apropiativo si puede interrumpir un proceso en ejecución para dar paso a otro.
+Es no apropiativo: Una vez que un proceso esta en estado de ejecucion, continua hasta que terimna 
+o hasta que se bloquea por algun evento (ej I/O)
+
+(f) Tareas de los Schedulers:
+
+Short Term Scheduler: Selecciona procesos listos para ejecución inmediata en la CPU.
+Long Term Scheduler: Decide qué procesos entran al sistema (admisión de nuevos procesos).
+Medium Term Scheduler: Realiza swapping, suspendiendo y reactivando procesos para equilibrar la carga.
+
+(g) Dispatcher: Es responsable de transferir el control de la CPU al proceso seleccionado por el Short Term Scheduler,
+ realizando tareas como cambiar de contexto y establecer el modo de usuario.
+
+ 2: 
+ a: 
+ top
+ Función: Muestra en tiempo real el uso de los recursos del sistema, incluyendo la CPU, la memoria, los procesos activos y su consumo de recursos.
+ Uso principal: Ayuda a monitorear el rendimiento del sistema y a identificar procesos que están consumiendo muchos recursos.
+ htop
+ Función: Es una versión mejorada y más visual de top que permite una interacción más intuitiva.
+ Uso principal: Similar a top, muestra procesos en tiempo real y permite gestionarlos, pero con una interfaz más amigable y funcionalidad de navegación con el teclado.
+ ps
+ Función: Muestra una lista estática de los procesos que se están ejecutando en el sistema.
+ Uso principal: Ideal para obtener una captura del estado actual de los procesos en un momento específico, con opciones para ver detalles de los procesos asociados a un usuario o al sistema en general.
+ pstree
+ Función: Muestra los procesos en forma de árbol jerárquico, mostrando las relaciones entre procesos padre e hijo.
+ Uso principal: Útil para visualizar cómo están organizados los procesos y las jerarquías de procesos en el sistema.
+ kill
+ Función: Envía una señal a un proceso específico, generalmente para terminarlo.
+ Uso principal: Usado para detener o reiniciar procesos que están funcionando mal o no responden. La señal más común es kill -9 (SIGKILL) para forzar la terminación.
+ pgrep
+ Función: Busca procesos en ejecución que coincidan con un nombre o patrón específico.
+ Uso principal: Facilita encontrar el ID de proceso (PID) de un programa en ejecución para luego utilizarlo con otros comandos como kill.
+ killall
+ Función: Envía una señal a todos los procesos que coinciden con el nombre especificado.
+ Uso principal: Permite terminar múltiples instancias de un proceso específico, en lugar de buscar y matar procesos individualmente.
+ renice
+Función: Cambia la prioridad de un proceso en ejecución.
+Uso principal: Útil para ajustar la prioridad de CPU de un proceso, haciendo que consuma más o menos recursos en comparación con otros procesos, sin detenerlo.
+ xkill
+Función: Permite cerrar una ventana gráfica de una aplicación seleccionándola directamente en la interfaz gráfica.
+Uso principal: En entornos gráficos, permite forzar el cierre de aplicaciones que no responden, simplemente seleccionando la ventana problemática.
+ atop
+Función: Es una herramienta de monitoreo avanzada que ofrece información detallada sobre la carga del sistema y el uso de recursos por cada proceso, incluyendo CPU, memoria, disco y red.
+Uso principal: Monitoreo a largo plazo y análisis detallado de recursos, especialmente útil para administración de sistemas y diagnóstico de problemas de rendimiento.
+
+b: 
+El código ejecuta un bucle for que se repite 3 veces. En cada iteración:
+Llama a la función fork() para crear un nuevo proceso.
+La función fork() retorna 0 en el proceso hijo y el ID del hijo en el proceso padre.
+Como fork() es llamado en cada iteración del bucle, el número de procesos generados sigue un patrón exponencial en función de la cantidad de iteraciones del bucle. 
+Cada proceso hijo creado ejecutará nuevamente el código desde el punto de la llamada a fork, produciendo aún más procesos en las siguientes iteraciones.
+
+i. ¿Cuántas líneas con la palabra "Proceso" aparecen al final de la ejecución de este programa?
+Al calcular el número de veces que "Proceso" se imprime, podemos pensarlo de la siguiente manera:
+
+En la primera iteración (c = 0), fork() crea 1 proceso adicional.
+En la segunda iteración (c = 1), los dos procesos existentes (el padre y el hijo de la primera iteración) llaman a fork(), creando 2 nuevos procesos adicionales, para un total de 4 procesos.
+En la tercera iteración (c = 2), los cuatro procesos llaman a fork(), creando 4 nuevos procesos, resultando en 8 procesos en total.
+Esto significa que al final, hay 8 procesos en total, y cada uno imprime "Proceso" una vez. Por lo tanto, la palabra "Proceso" aparece 8 veces.
+
+ii. ¿El número de líneas es el número de procesos que han estado en ejecución?
+Sí, el número de líneas con la palabra "Proceso" corresponde al número de procesos que han estado en ejecución, ya que cada proceso ejecuta la instrucción printf("Proceso\n");.
+
+El número de líneas sigue la fórmula 2^c al final de cada ejecución del programa, donde c es el número de iteraciones del bucle.
+
+c: 
+i. ¿Qué valores se muestran por consola?
+Todos los procesos (incluido el proceso principal y todos los procesos hijos creados por fork()) incrementan p una vez, de 0 a 1, y luego imprimen "Proceso 1".
+
+ii. ¿Todas las líneas tendrán el mismo valor o algunas líneas tendrán valores distintos?
+Todas las líneas tendrán el mismo valor, ya que cada proceso tiene su propia copia de la variable p, la cual se incrementa de 0 a 1 solo una vez antes de ser impresa. La variable p no es compartida entre los procesos; cada proceso opera sobre su propia versión.
+
+iii. ¿Cuál es el valor (o valores) que aparece?
+El valor que aparece es "Proceso 1" en cada línea. Esto ocurrirá 8 veces, ya que hay 8 procesos en total al final de la ejecución del bucle for.
+
+
+d: 
+i. Comunicación entre procesos a través de pipes
+Un pipe (tubería) es una de las formas más comunes para permitir la comunicación entre procesos en sistemas Unix/Linux.
+Es un mecanismo que permite que los datos fluyan de un proceso a otro de manera unidireccional. En una comunicación mediante pipes
+Un pipe es temporal y solo existe mientras los procesos que lo usan están en ejecución.
+
+ii. 
+En C, un pipe se crea invocando a la función pipe()
+int pipe(int pipefd[2]);
+
+iii. ¿Qué parámetro es necesario para la creación de un pipe? Explique para qué se utiliza.
+El único parámetro necesario para la creación de un pipe es el arreglo pipefd, el cual debe tener espacio para dos enteros (int pipefd[2]). 
+Este arreglo representa los dos extremos del pipe
+pipefd[0]: El descriptor de archivo para leer del pipe.
+pipefd[1]: El descriptor de archivo para escribir en el pipe.
+
+iv. ¿Qué tipo de comunicación es posible con pipes?
+Los pipes permiten una comunicación unidireccional entre procesos, es decir, los datos pueden fluir en una sola dirección desde el proceso que escribe hacia el proceso que lee.
+Generalmente, se utilizan para compartir información entre un proceso padre y sus procesos hijos.
+ Para lograr una comunicación bidireccional (en ambos sentidos), se necesitan dos pipes: uno para enviar datos en cada dirección.
+
+e) ¿Cuál es la información mínima que el SO debe tener sobre un proceso? ¿En qué estructura de datos asociada almacena dicha información?
+El sistema operativo necesita mantener información básica para gestionar y controlar un proceso. Esta información mínima incluye:
+
+ID del proceso (PID): un identificador único para el proceso.
+Estado del proceso: el estado actual del proceso (ej., en ejecución, en espera, etc.).
+Contador de programa (PC): dirección de la próxima instrucción a ejecutar.
+Registros del CPU: valores de los registros que el proceso está utilizando.
+Memoria asignada: detalles de las áreas de memoria asignadas al proceso (pila, datos, etc.).
+Información de I/O: descriptores de archivo y otros recursos de entrada/salida que el proceso utiliza.
+Prioridad y planificador: información sobre la prioridad y los tiempos de espera del proceso para la planificación.
+Esta información se almacena en la tabla de procesos del sistema operativo, en una estructura llamada PCB (Process Control Block) o bloque de control de proceso.
+
+f) ¿Qué significa que un proceso sea “CPU Bound” y “I/O Bound”?
+CPU Bound: un proceso es CPU Bound cuando pasa la mayor parte de su tiempo ejecutando cálculos o instrucciones en el procesador.
+ Estos procesos requieren muchos recursos de CPU y generan pocas operaciones de entrada/salida (I/O).
+I/O Bound: un proceso es I/O Bound cuando pasa la mayor parte del tiempo esperando la finalización de operaciones de entrada/salida,
+ como lecturas/escrituras en disco o comunicación con dispositivos externos. Requiere menos CPU y depende más de las operaciones de I/O.
+
+g) ¿Cuáles son los estados posibles por los que puede atravesar un proceso?
+Los estados típicos por los que un proceso puede pasar incluyen:
+
+Nuevo (New): el proceso ha sido creado, pero aún no está listo para ejecutarse.
+Listo (Ready): el proceso está preparado para ejecutarse, pero está en la cola de espera para recibir tiempo de CPU.
+En ejecución (Running): el proceso está en ejecución activa en el CPU.
+Bloqueado o Esperando (Blocked o Waiting): el proceso está en espera de algún evento o recurso, como una operación de entrada/salida.
+Suspendido (Suspended o Swapped): el proceso ha sido transferido de la memoria principal a la memoria secundaria (swap) para liberar recursos. Hay dos subcategorías:
+    Suspendido y listo (Suspended Ready): el proceso está en espera para volver a la memoria principal cuando haya recursos disponibles y pueda continuar.
+    Suspendido y bloqueado (Suspended Blocked): el proceso está en espera tanto de recursos de memoria como de la finalización de una operación de I/O o algún otro evento.
+Terminado (Terminated): el proceso ha completado su ejecución y está listo para ser eliminado de la memoria.
+
+3: 
+
+FCFS (First-Come, First-Served)
+En FCFS, los procesos se atienden por orden de llegada, no es un algoritmo apropiativo, por ende, una vez que se comienza a ejecutar el proceso, 
+se ejecuta hasta que se complete. 
+ Ejemplo: 
+  Procesos: P1 (tiempo de llegada = 0, duración = 4), P2 (tiempo de llegada = 1, duración = 3), P3 (tiempo de llegada = 2, duración = 1)
+  Orden de ejecución: P1 → P2 → P3
+
+ FCFS: No favorece a ningun tipo de procesos, pero podriamos decir que los CPU Bound terminan al comenzar su primer rafaga, mientras que los I/O Bound no. 
+Parametros: Solo necesita el tiempo de llegada y duracion de cada proceso. 
+Ventajas: Simple de implementar
+Desventajas: Puede provocar problemas de convoy effect (procesos cortos que esperan a que terminen los procesos largos.)
+
+SJF (Shortest Job First)
+En SJF, se ejecuta primero el proceso con la menor duracion (tiempo de ejecucion mas corto.). Es un algoritmo no apropiativo. 
+Los procesos cortos se colocan delante de procesos largos.
+Parametros: Requiere conocer la duracion de cada proceso para decidir su orden. 
+ Ejemplo: 
+    Procesos: P1 (duración = 6), P2 (duración = 2), P3 (duración = 8), P4 (duración = 3)
+    Orden de ejecución: P2 → P4 → P1 → P3
+ Desventaja: Los procesos largos pueden sufrir inanicion (un proceso nunca recibe tiempo de CPU para ejecutarse)
+
+ RR (Round Robin)
+ Round Robin asigna a cada proceso un tiempo fijo (quantum). Si un proceso no termina en ese tiempo, se pone al final de la cola y el siguiente proceso recibe la CPU.
+  Cuando un proceso es expulsado de la CPU es colocado al final de la Ready Queue y se selecciona otro (FIFO circular)
+  Ejemplo: 
+    Procesos: P1 (duración = 5), P2 (duración = 3), P3 (duración = 8) y quantum = 2
+    Orden de ejecución: P1 (2), P2 (2), P3 (2), P1 (2), P2 (1), P3 (2), P1 (1), P2 (2), P2 (2)
+  Parametros: Requiere el parametro quantum, que determina cuanto tiempo puede ejecutarse cada proceso antes de cambiar al siguiente. 
+
+  Ventajas: Es justo para todos los procesos, evita la inanicion. 
+  Desventaja: Quantum demasiado corto implica demasiados cambios de contexto, demasiado largo se asemega a FCFS 
+
+ Prioridades
+ Cada proceso tiene un valor que representa su prioridad. El sistema ejecuta primero los procesos con prioridad mas alta. 
+ Menor valor --> Mayor prioridad
+ Se selecciona el proceso de mayor prioridad de los que se encuentran en la Ready Queue
+ Existe una Ready Queue por cada nivel de priorida
+Los procesos de igual prioridad pueden gestionarse con otro algoritmo, como RR o FCFS
+  Ejemplo: 
+    Procesos: P1 (prioridad = 1), P2 (prioridad = 3), P3 (prioridad = 2)
+    Orden de ejecución: P1 → P3 → P2 (donde 1 es la prioridad más alta).
+Parametros: Requiere parametro de pioridad para cada proceso. 
+Ventajas: Permite ejecutar procesos criticos con prioridad.
+Desventajas: Puede causar inanicion en procesos de baja prioridad -> Solucion: Permitir a un proceso cambiar su prioridad durante su ciclo de vida. 
+Puede ser un algoritmo apropiativo o no apropiativo. 
+
+ 4:
+
+ Para el algoritmo Round Robin, existen 2 variantes:
+ Timer Fijo , Timer Variable
+
+(a) ¿Qué significan estas 2 variantes?
+Timer Fijo:  
+En esta variante el quantum asignado a cada proceso es siempre el mismo para todos los procesos y se mantiene constante a lo largo del tiempo. 
+Esto significa que cada proceso recibe la misma cantidad de tiempo en cada ciclo de la CPU. 
+
+Timer Variable:
+En esta variante, el quantum puede variar dependiendo de ciertos factores, como la prioridad del proceso, la carga del sistema o el historial del proceso.
+Esto permite que algunos procesos reciban mas tiempo de CPU que otros, adaptandose mejor a diferentes tipos de carga de trabajo y mejorando la eficiencia en ciertos casos. 
+
+(b) Explique mediante un ejemplo sus diferencias.
+Timer Fijo: Supongamos que el quantum es de 4 ms. En esta variante, cada proceso se ejecuta por un tiempo fijo de 4 ms antes de que la CPU pase al siguiente proceso en cola. 
+Ejemplo de ejecucion: 
+Primero se ejecuta P1, durante 4ms
+Luego se ejecuta P2 durante 4ms
+Luego P3 durante 4ms 
+Si no han terminado, el ciclo se repite, otorgando a cada uno nuevamente 44 ms de CPU. 
+
+Timer Variable: Supongamos que P1 tiene una prioridad alta, P2 media y P3 baja. El quantum podria ajustarse a 6ms para P1, 4ms para P2 y 2ms para P3.
+Primero se ejecuta P1 durante 6ms
+luego P2 durante 4ms 
+luego P3 durante 2ms 
+dependiendo de la carga o de las necesidades de cada proceso, se reasigna el quantum en el siguiente ciclo. 
+
+(c) En cada variante ¿Dónde debería residir la información del Quantum
+
+Timer fijo: La informacion del quantum puede residir en una estructura de datos global del sistema operativo que almacene el tiempo predeterminado de ejecucion para todos los procesos. 
+Timer variable: La informacion del quantum deberia residir en la estructura de control de cada proceso individualmente, por ejemplo en el PCB (process control black). Esto Permite
+que el quantum se ajuste de forma especifica para cada proceso segun sus neceasidades y caracteristicas. 
+
+5) : .....
+
+
+6) 
+ a,b,c) Resueltos, hay una imagen donde tengo los diferentes algoritmos. 
+ 
+ d) La conclusion del RR con respecto al quantum, es que, a menor quantum, vamos a tener mayor tiempo promedio.
+  usar RR con quantum chico, nos trae mayor promedio de retorno y mayor y tiempo de espera, porque ocurren mayor numero de interrupciones,
+  por lo que produce mayor cambio de contexto (mayor context switch). Por ende, usar un RR con quantum chico no es una buena opcion. 
+
+e) Casos en los que usaria un valor alto de quantum: 
+  si los procesos necesitan mucho tiempo de cpu para ejecutarse, un quantum alto evitaria que sean interrumpidos frecuentemente. 
+  esto puede ser util para procesos largos. 
+   ventajas: menos sobrecarga de context switch, mejor rendimiento para procesos largos
+   desventajas: peor tiempo promedio para procesos cortos, posible bloqueo de procesos, comportamiento similar a un FCFS
+   
+
+7): imagen
+
+8: desp lo hago. 
+
+9(a) ¿Qué significa inanición (starvation)?
+La inanición ocurre cuando un proceso o hilo nunca obtiene acceso a un recurso necesario para avanzar porque otros procesos o hilos con mayor prioridad o acceso continuo lo privan indefinidamente. Esto suele suceder en sistemas donde los recursos son asignados de manera no equitativa o donde no se considera el tiempo que un proceso ha estado esperando.
+
+
+13: 
+Sí, puede suceder que el quantum de un proceso nunca llegue a 0 (cero) bajo un esquema de VRR (Variable Round Robin) con un Timer Variable, pero esto depende de cómo esté implementado el algoritmo
+
+En VRR, el quantum asignado a un proceso se representa por un contador, que disminuye en cada interrupción de reloj.
+Si el proceso es preemptado (interrumpido) antes de que su quantum llegue a 0, el quantum restante se reprograma o ajusta según la política de VRR.
+
+Condición que provoca que el quantum nunca llegue a 0:
+Llegada de procesos de mayor prioridad o urgencia: Si constantemente llegan procesos que el planificador decide ejecutar antes del proceso actual, el proceso en cuestión será continuamente preemptado (interrunpido). Su quantum será ajustado o acumulado, y nunca se ejecutará el tiempo suficiente para que el contador llegue a 0.
+
+14: Resuelto en imagenes.
+
+15: 
+a) 
+
+En una cola multinivel, los procesos interactivos y batch tienen características distintas que requieren diferentes enfoques de planificación:
+
+Cola de procesos interactivos:
+Los procesos interactivos requieren rápida respuesta y baja latencia, ya que suelen estar ligados a la interacción del usuario.
+Algoritmo sugerido:
+
+Round Robin (RR): Permite alternar rápidamente entre procesos, dando un tiempo fijo (quantum) a cada uno. Esto asegura que ningún proceso interactivo bloquee a los demás.
+Puede usarse un quantum pequeño para maximizar la reactividad.
+Cola de procesos batch:
+Los procesos batch suelen ser tareas largas y no críticas en términos de tiempo de respuesta inmediato.
+Algoritmo sugerido:
+
+SJF o SRTF: Estos algoritmos minimizan el tiempo promedio de espera al ejecutar primero los procesos más cortos (si se puede estimar la duración).
+Alternativamente, FCFS (First Come First Served): Una opción más simple, ya que los procesos batch no necesitan interrupciones frecuentes.
+
+b) 
+Para administrar las dos colas (interactiva y batch), se necesita un algoritmo que determine qué cola tiene prioridad. En este caso:
+
+Opción principal:
+
+Prioridad fija: Dar prioridad absoluta a la cola interactiva, asegurando que los procesos interactivos se atiendan antes que los batch.
+Si la cola interactiva está vacía, se atienden procesos de la cola batch. Esto garantiza que los procesos interactivos tengan la máxima prioridad y no experimenten retrasos.
+Opción alternativa:
+
+Planificación por Round Robin entre colas: Cada cola se atiende durante un tiempo fijo (quantum). Por ejemplo:
+Dar 80% del tiempo a la cola interactiva.
+Dar 20% del tiempo a la cola batch.
+Ventaja de la primera opción:
+
+Máxima reactividad para procesos interactivos.
+Ventaja de la segunda opción:
+Garantiza que los procesos batch no se queden bloqueados indefinidamente (evita inanición).
+
+Resumen de elección final:
+Cola interactiva: Round Robin (RR) con quantum pequeño.
+Cola batch: SJF o FCFS.
+Entre colas: Planificación con prioridad fija o un esquema de Round Robin con proporciones ajustadas.
+
+16: Hacer después.
+
+17: Hacer después. 
+
+18:
+
+Diseño de las colas
+Definición de las colas:
+Cola 1 (Alta prioridad): Procesos con bajo tiempo de ejecución acumulado.
+Estos procesos deben ejecutarse rápidamente para minimizar la latencia.
+Cola 2 (Media prioridad): Procesos con moderado tiempo de ejecución acumulado.
+Se asignan procesos que han consumido más tiempo, pero no lo suficiente como para ser relegados a la última cola.
+Cola 3 (Baja prioridad): Procesos con alto tiempo de ejecución acumulado.
+Procesos penalizados por consumir mucho tiempo de CPU, pero que aún necesitan ejecutarse para evitar inanición.
+Algoritmo para cada cola
+Cola 1:
+Utilizar Round Robin (RR) con un quantum corto, ya que los procesos aquí son probablemente interactivos o de corta duración.
+
+Esto garantiza que todos los procesos tengan una respuesta rápida y no acumulen mucho tiempo sin ser ejecutados.
+Cola 2:
+Utilizar Round Robin (RR) con un quantum más largo que en la cola 1.
+
+Permite un balance entre la equidad y la penalización para procesos que han consumido tiempo moderado.
+Cola 3:
+Utilizar First Come First Served (FCFS) o Round Robin (RR) con un quantum largo.
+
+Dado que los procesos en esta cola ya han sido penalizados, el enfoque debe ser simple y evitar la inanición.
+
+20: 
+
+21: 
+Si el quantum q en el algoritmo Round Robin (RR) se incrementa sin límite, el comportamiento del algoritmo se aproxima a FIFO (First In, First Out) debido a la manera en que se asigna el tiempo de CPU a los procesos.
+
+Explicación:
+Funcionamiento de Round Robin:
+
+En el algoritmo Round Robin, cada proceso recibe un "quantum" de tiempo, que es una cantidad de tiempo de CPU para ejecutarse.
+Si un proceso no termina en ese tiempo, se coloca al final de la cola de listos, y el siguiente proceso toma su turno.
+Este proceso se repite para cada proceso en la cola de listos.
+Funcionamiento de FIFO:
+
+En el algoritmo FIFO, los procesos se ejecutan en el orden en que llegaron, sin interrupciones. El primer proceso en llegar es el primero en ejecutarse hasta su finalización, luego se pasa al siguiente proceso.
+¿Qué pasa cuando el quantum aumenta indefinidamente?
+Cuando el quantum se incrementa mucho (y en el límite se hace infinito), cada proceso recibe un tiempo de CPU suficientemente largo para ejecutarse completamente sin ser interrumpido. En este caso, Round Robin se comporta de manera muy similar a FIFO:
+
+Si el quantum es suficientemente grande, cada proceso recibe toda la CPU que necesita para completar su ejecución sin ser interrumpido.
+Como no hay interrupciones, los procesos se ejecutan completamente de acuerdo con su orden de llegada, sin que ninguno sea preemptado.
+Esto hace que los procesos se ejecuten en el orden de llegada, de la misma manera que en FIFO, donde el primer proceso en llegar se ejecuta completamente antes de pasar al siguiente.
+Resumen:
+Cuando el quantum en Round Robin se incrementa sin límite, el algoritmo deja de interrumpir a los procesos y se comporta de manera similar a FIFO, donde los procesos se ejecutan de forma secuencial sin ser preemptados, siguiendo el orden en que llegaron a la cola de listos.
+
+22:
+(a) ¿Con cuál/es de estas clasificaciones asocia a las PCs de escritorio habituales?
+
+Las PCs de escritorio habituales generalmente se asocian con la clasificación de multiprocesador fuertemente acoplado. Esto se debe a que:
+
+Las PCs de escritorio típicamente tienen procesadores múltiples (por ejemplo, procesadores multinúcleo) que comparten una memoria principal común.
+Estos procesadores trabajan en conjunto bajo el control de un sistema operativo, que gestiona la distribución de tareas y recursos de manera centralizada.
+En algunos casos, también podrían asociarse con sistemas homogéneos si todos los núcleos del procesador son iguales, como ocurre en la mayoría de las CPUs modernas.
+
+(b) ¿Qué significa que la asignación de procesos se realice de manera simétrica?
+
+La asignación de procesos de manera simétrica significa que todos los procesadores en un sistema multinúcleo o multiprocesador tienen un rol igual en la ejecución de procesos. Es decir, cada procesador tiene acceso equitativo a la memoria y a los recursos del sistema, y se encargan de ejecutar procesos de manera distribuida y equilibrada. No hay un procesador principal que se encargue de tareas más importantes que otros.
+
+Este tipo de organización es común en los sistemas multiprocesador homogéneos, donde no se asigna un rol especializado a cada procesador.
+
+(c) ¿Qué significa que se trabaje bajo un esquema Maestro/Esclavo?
+
+En un esquema Maestro/Esclavo, hay una asignación jerárquica de tareas en la que un procesador principal (maestro) controla y coordina el trabajo de uno o más procesadores subordinados (esclavos). El procesador maestro es responsable de distribuir las tareas, mientras que los procesadores esclavos ejecutan las tareas asignadas sin tomar decisiones por sí mismos.
+
+Este esquema se utiliza a menudo en sistemas multiprocesador donde un procesador principal gestiona los recursos y las comunicaciones, mientras que los procesadores esclavos realizan tareas específicas que no requieren un control centralizado. Algunos ejemplos de sistemas que usan este esquema son los procesadores especializados (por ejemplo, procesadores de E/S, procesadores criptográficos, etc.) o ciertos sistemas heterogéneos.
+
+23: 
+
+(a) ¿Cuál sería el método de planificación más sencillo para asignar CPUs a los procesos?
+El método de planificación más sencillo en el caso de procesadores homogéneos sería Round Robin. Este algoritmo asigna a cada proceso un quantum de tiempo y se ejecutan de manera circular. Si un proceso no termina su ejecución dentro de su quantum, el siguiente proceso en la cola recibe el turno, y el proceso que no terminó vuelve al final de la cola para su siguiente ejecución. En un sistema con múltiples procesadores homogéneos, Round Robin podría asignar los procesos de manera rotativa a los distintos procesadores disponibles.
+
+(b) Cite ventajas y desventajas del método escogido.
+Ventajas de Round Robin:
+
+Simplicidad: Es fácil de implementar, sin necesidad de información detallada sobre los procesos.
+Equilibrado: Da a cada proceso un tiempo de CPU similar, evitando que un solo proceso monopolice el procesador.
+Preemptivo: Permite la preempción de los procesos, lo cual es útil en sistemas interactivos donde es importante responder rápidamente a las solicitudes del usuario.
+Desventajas de Round Robin:
+
+Eficiencia: Si los procesos tienen tiempos de CPU muy desiguales, los procesos más cortos pueden quedar esperando, lo que puede resultar en mayor tiempo de espera.
+Overhead: El context switching (cambio de contexto) puede generar un overhead significativo si los quantum son demasiado pequeños, afectando el rendimiento general del sistema.
+
+24. Indique brevemente a qué hacen referencia los siguientes conceptos:
+(a) Huella de un proceso en un procesador
+La huella de un proceso se refiere a la cantidad de recursos que un proceso utiliza en el procesador y el sistema, como el tiempo de CPU, memoria, registros, etc. Se refiere también al espacio de direcciones que el proceso ocupa en memoria y los recursos asociados a su ejecución.
+
+(b) Afinidad con un procesador
+La afinidad con un procesador es la preferencia de un proceso por ejecutarse en un procesador específico, generalmente el procesador en el cual ha estado ejecutándose previamente. Esto se puede hacer para optimizar el rendimiento, reduciendo el overhead asociado con el context switching o el acceso a la memoria.
+
+(c) ¿Por qué podría ser mejor en algunos casos que un proceso se ejecute en el mismo procesador?
+Es mejor que un proceso se ejecute en el mismo procesador para reducir la penalización de cache misses, ya que el procesador puede seguir utilizando los datos que ya están en su caché local, evitando la necesidad de acceder a la memoria principal o a otros procesadores. Esto mejora el rendimiento, especialmente en sistemas de multiprocesador con caches no coherentes.
+
+(d) ¿Puede el usuario en Windows cambiar la afinidad de un proceso? ¿y en GNU/Linux?
+En Windows, el usuario puede cambiar la afinidad de un proceso a través del Administrador de tareas, donde puede seleccionar en qué procesador(s) debe ejecutarse un proceso específico.
+En GNU/Linux, la afinidad de un proceso también puede ser modificada usando el comando taskset, que permite asignar un proceso a un conjunto específico de procesadores.
+(e) Investigue el concepto de balanceo de carga (load balancing).
+El balanceo de carga es el proceso de distribuir la carga de trabajo de manera eficiente a través de varios procesadores o nodos en un sistema. El objetivo es evitar que algunos procesadores estén sobrecargados mientras otros están inactivos. En sistemas multiprocesador, el balanceo de carga optimiza el uso de los recursos, mejora el rendimiento y minimiza los tiempos de espera de los procesos.
+
+(f) Compare los conceptos de afinidad y balanceo de carga y cómo uno afecta al otro.
+Afinidad favorece la ejecución de un proceso en el mismo procesador donde ha estado trabajando, lo que mejora el rendimiento debido a la reutilización de la caché local y a la reducción del context switching. Sin embargo, puede causar desbalanceo de carga si un procesador se sobrecarga mientras otros permanecen inactivos.
+
+Balanceo de carga trata de distribuir de manera equitativa las tareas entre los procesadores para evitar cuellos de botella. Si se usa en exceso, puede interferir con la afinidad, ya que mover los procesos constantemente entre procesadores puede aumentar el overhead de comunicación y afectar la performance. Sin embargo, un buen balanceo de carga puede mantener todos los procesadores ocupados, mientras que la afinidad puede garantizar que los procesos se ejecuten en los mejores procesadores posibles para su rendimiento.
+
+25: 
+(a) Ejecute el esquema utilizando el algoritmo anterior. En el algoritmo de preferred processor:
+
+El scheduler asigna el procesador preferido si está libre. De lo contrario, se asigna otro procesador disponible.
+Los trabajos se ejecutan según su orden de llegada, pero primero se verifica la disponibilidad del procesador preferido.
+(b) Ejecute el esquema con la condición modificada. Si el procesador preferido no está libre, el proceso es asignado a otro procesador disponible, pero al terminar, el procesador preferido será el último en el cual se ejecutó. Aquí, se podría usar un esquema de afinidad dinámica, lo que asegura que el procesador preferido se utilice en la próxima ejecución.
+
+(c) Tiempo promedio de retorno y tiempo promedio de espera: El tiempo de retorno es el tiempo total desde que un proceso llega hasta que termina. El tiempo de espera es el tiempo total que un proceso pasa en la cola de listos esperando a ser ejecutado.
+
+Para calcular estos tiempos, se deben simular ambos esquemas y registrar los tiempos de inicio y fin de cada trabajo, luego calcular los promedios.
+
+(d) ¿Cuál de las dos alternativas es más performante?
+
+El esquema de asignación flexible (si el procesador preferido no está libre se asigna otro procesador) podría ser más performante en términos de balanceo de carga, ya que evita que un procesador se quede inactivo mientras otros están sobrecargados.
+Sin embargo, el esquema estricto (procesador preferido siempre que esté libre) podría ser mejor para la eficiencia de la memoria caché, ya que los procesos tienden a beneficiarse de estar en el mismo procesador durante más tiempo.

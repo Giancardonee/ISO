@@ -1,0 +1,36 @@
+FORMULAS QUE MAS SE USAN EN LA PRACTICA: 
+
+EJEMPLO, SI TENEMOS UN PROCESO QUE OCUPA 2000 BYTES Y CADA PAGINA OCUPA 512 BYTES
+PARA CALCULAR LA CANTIDAD DE PAGINAS QUE NECESITA SE HACE: 
+      NUMERO DE PAGINAS = TAMAÑO PROCESO / TAMAÑO PAGINA 
+ESTO NOS DA UN TOTAL DE 3.91 , LO QUE SERIAN 3 PAGINAS COMPLETAS Y UNA INCOMPLETA
+PAGINAS COMPLETAS = 3
+LA PAGINA INCOMPLETA OCUPA = 2000 MOD 512 = 454 BYTES (ESTA ES LA ULTIMA PAGINA)
+
+
+Modelo de Localidad
+El modelo de localidad dice que cuando un programa se está ejecutando, tiende a acceder repetidamente a las mismas partes de la memoria durante un periodo de tiempo. Este comportamiento no es aleatorio; sigue ciertos patrones llamados localidad.
+
+Existen dos tipos principales de localidad:
+
+Localidad temporal:
+Si un programa accede a un dato (como una variable o instrucción), es probable que vuelva a acceder a ese mismo dato pronto.
+Ejemplo: Un bucle que suma números: el mismo conjunto de instrucciones y variables se usa repetidamente.
+
+Localidad espacial:
+Si un programa accede a una posición de memoria, es probable que acceda a posiciones cercanas en el futuro.
+Ejemplo: Cuando recorres un arreglo, accedes a posiciones de memoria adyacentes.
+
+Working Set (Ventana de trabajo)
+El working set es el conjunto de páginas que un programa necesita en un periodo de tiempo para ejecutarse eficientemente.
+
+Ejemplo GOD de chatgpt
+Imagina que tu programa es una casa, y las páginas son las herramientas que necesitas. Si tienes todas las herramientas que usas con frecuencia cerca de ti, puedes trabajar rápido. Pero si tienes que ir al almacén cada vez que necesitas algo, pierdes mucho tiempo.
+
+Si las páginas de tu working set caben en la memoria física, el programa funciona bien.
+Si no caben, tendrás muchos fallos de página y caerás en un problema llamado thrashing (el sistema pierde tiempo moviendo páginas entre la memoria y el disco en lugar de ejecutar el programa).
+
+
+=== 
+Cuando nos den valores en kb, debemos pasarlo a bytes multiplicando por 1024.
+Ejemplo el ejercicio 15 de la p5

@@ -1,0 +1,20 @@
+Tiempo de retorno: 
+Tiempo desde que llego a memoria el proceso, hasta que finalizo completamente. 
+
+Tiempo de espera: Tiempo que tuvo que esperar para ser ejecutado. 
+Tiempo de espera se puede calcular como tiempo de retorno - cantidad de cpu que necesito para terminar. 
+
+Para sacar los promedios tenemos que tomar los TR y dividirlo por la cantidad de procesos. 
+Los promedios son utiles para comparar con distintos tipos de algoritmos, que es lo que quiero mejorar, si el tiempo de retorno o tiempo de espera. 
+
+En los procesos que necesitamos tener una respuesta rapida (por ejemplo cpu bound) vamos a necesitar que tenga un tiempo de retorno (TR) lo mas bajo posible, para que termine lo antes posible
+En los procesos I/O bound nos conviene tener un tiempo de espera lo mas bajo posible (TE mas bajo posible)
+
+
+
+TIPS PARA SACAR TR Y TE FACIL: 
+ TR (TIEMPO DE RETORNO): INSTANTE DONDE TERMINA EL PROCESO - INSTANTE DE LLEGADA DE PROCESO + 1
+ TE (TIEMPO DE ESPERA):  SIEMPRE SE HACE TR - CANT CPU QUE NECESITA EL PROCESO
+
+CUANDO TENEMOS PROCESOS DE I/O, EN EL MISMO INSTANTE NO PUEDEN ACCEDER DOS PROCESOS DISTINTOS AL MISMO RECURSO, SE DEBE HACER UNA COLA FIFO CON EL RECURSO PARA PODER ASIGNARLO SOLAMENTE A UN PROCESO CUANDO ESTE DISPONIBLE EL RECURSO. 
+EN LOS ALGORITMOS DE I/O, DEBEMOS ENCOLAR NUEVAMENTE EL PROCESO UNA VEZ QUE TERMINE EL RECURSO. 

@@ -1,0 +1,91 @@
+Resumen: 
+Administración de Memoria (00:04 - 01:42):
+
+La administración de memoria trata de mapear espacios de direcciones lógicas (utilizados por los procesos) a la memoria física (RAM). La eficiencia en la administración de memoria es crucial para lograr un alto grado de multiprogramación y mantener la CPU ocupada.
+Responsabilidades del Sistema Operativo (01:42 - 03:09):
+
+El sistema operativo se encarga de asignar y liberar espacios de memoria, llevar un registro de la memoria utilizada y libre, y gestionar eficientemente los diferentes tipos de datos (código, variables, etc.).
+Traducción de Direcciones y Protección (05:01 - 07:49):
+
+Las direcciones lógicas deben ser traducidas a direcciones físicas. El sistema operativo debe garantizar que los procesos no accedan a la memoria de otros procesos y gestionar los recursos compartidos de manera eficiente.
+Técnicas de Administración de Memoria (08:36 - 36:01):
+
+Paginación: Divide la memoria en páginas, que se asignan a marcos físicos. Utiliza una tabla de páginas para gestionar la memoria, permitiendo asignación no contigua.
+Segmentación: Divide la memoria en segmentos (código, datos), cada uno con su base y límite. Maneja segmentos de diferentes tamaños, pero puede causar fragmentación interna.
+Combinación de Técnicas y Dependencia del Hardware (55:02 - 56:31):
+
+Los sistemas modernos combinan paginación y segmentación para optimizar el uso de memoria. La técnica utilizada depende de la arquitectura del hardware, y el sistema operativo se adapta para manejar la memoria de acuerdo con las capacidades del hardware.
+Técnicas de Administración de Memoria
+Paginación (08:36 - 36:01)
+Concepto Básico:
+
+La paginación divide la memoria física y la memoria lógica en bloques de tamaño fijo llamados "páginas" y "marcos de página", respectivamente. La memoria lógica de un proceso se divide en páginas del mismo tamaño, y la memoria física se divide en marcos que corresponden a esas páginas.
+Funcionamiento:
+
+Tabla de Páginas: Cada proceso tiene una tabla de páginas que mapea las páginas lógicas a los marcos físicos. Esta tabla guarda la dirección base de cada página en la memoria física.
+Traducción de Direcciones: Cuando un proceso accede a una dirección, la CPU convierte la dirección lógica en una dirección física usando la tabla de páginas. La dirección lógica se divide en un número de página y un desplazamiento dentro de esa página.
+Ventajas: Permite una asignación de memoria no contigua, es decir, las páginas no tienen que estar físicamente juntas en la RAM. Esto reduce la fragmentación externa y permite un uso más eficiente de la memoria.
+Fragmentación: La paginación minimiza la fragmentación externa pero puede llevar a la fragmentación interna si una página no está completamente llena.
+Segmentación (36:01 - 44:16)
+Concepto Básico:
+
+La segmentación divide la memoria en segmentos de tamaños variables, como código, datos, y pilas. Cada segmento tiene su propia base y límite, permitiendo que los segmentos sean de diferentes tamaños y no necesariamente del mismo tamaño.
+Funcionamiento:
+
+Tabla de Segmentos: Cada proceso tiene una tabla de segmentos que mantiene la dirección base y el tamaño de cada segmento. Esto ayuda a gestionar segmentos de diferentes tamaños.
+Dirección Lógica: Una dirección lógica en segmentación se compone de un número de segmento y un desplazamiento dentro de ese segmento. La CPU usa la tabla de segmentos para traducir la dirección lógica en una dirección física.
+Ventajas: Permite una mayor flexibilidad en la administración de la memoria y puede ser más eficiente en el uso de la memoria para procesos que tienen segmentos de tamaños variados.
+Fragmentación: Aunque la segmentación puede provocar fragmentación interna (dentro de un segmento), es menos problemática que la fragmentación externa, ya que los segmentos no necesitan estar contiguos en la memoria física.
+Combinación de Técnicas y Dependencia del Hardware
+Combinación de Técnicas (55:02 - 56:31):
+
+Los sistemas modernos a menudo combinan paginación y segmentación para aprovechar las ventajas de ambas técnicas. Por ejemplo, un sistema puede usar segmentación para manejar segmentos de diferentes tipos (código, datos, etc.) y paginación dentro de cada segmento para gestionar la memoria de manera más eficiente.
+Segmentación con Paginación: En esta técnica, cada segmento se divide en páginas, combinando las ventajas de la segmentación (manejo de diferentes tamaños de bloques) con la paginación (reducción de la fragmentación externa y manejo eficiente de la memoria).
+Dependencia del Hardware:
+
+Adaptación a la Arquitectura: La forma en que se administra la memoria depende en gran medida de la arquitectura del hardware. El hardware define cómo se organizan y gestionan las tablas de páginas y segmentos.
+Implementación del Sistema Operativo: El sistema operativo se adapta a la arquitectura del hardware para implementar técnicas de administración de memoria. Esto implica definir y mantener las estructuras de datos necesarias para la paginación y segmentación, y asegurarse de que estas técnicas se utilicen de manera eficiente para gestionar la memoria física y lógica.
+
+
+===
+El sistema operativo tiene que realizar una administración optima de los recursos. 
+
+MEMORIA: 
+
+Los programas y datos deben estar almacenados en almacenamiento principal para poderlos ejecutar y referenciarlos directamente.
+
+El S.O, el kernel es el encargado de organizar y administrar los espacios de direcciones, como se van organizando en memoria ram. 
+ 
+
+El S.O tiene que llevar un registro de las partes de memoria que se están utilizando. 
+El S.O es el responsable de saber esos espacios lógicos, donde almacenarlos en memoria ram. 
+El S.O le va asignando espacio d ememoria am  esos procesos, y a su vez tiene que tener en cuenta que cuando los procesos terminan, esa memoria que ocuparon se tiene que liberar. 
+El s.o debe permitir que los procesos puedan compartir determinadas partes de direcciones. 
+Todos los procesos tienen un espacio de direcciones que pueden utilizar todas las direcciones disponibles, pero en lo físico, en realidad eso no sucede.
+El s.o no inventa como administrar la memoria ram, sino que el hardware tiene una manera de administrarla, y el s.o se desarrolla para ajustarla a esa forma en que trabaja el hardware
+
+
+Rquisitos para administrar la memoria ram: 
+Reubucacion: El programador no debe ocuparse de conocer donde sera colocado en la memoria ram. 
+Mientras un proceso se ejecuta, puede ser sacado y traído e la memoria (swap) y colocarse en diferentes direcciones. 
+
+Protección: Esta ligado a que lo haga el hardware. Los procesos no deben referencia,acceder a direcciones de memoria de otros procesos. Salvo que tengan un permiso. 
+
+Direcciones: 
+Logicas: Referencia a una localidad de memoria. Son las que utilizan los procesos. Es independiente de la asignación actual de los datos en la memoria
+
+Fisica: Referencia una localidad en la memoria física (RAM)
+
+Cada dirección lógica que se genera, se debe transformar en una dirección física. Una forma de hacer esto es utilizar registros auxiliares. 
+
+Toda dirección lógica se le suma a un registro base, y se controla que esa dirección física que se acaba de generar, no supere el registro limite.
+Cada proceso tiene un registro base y un registro limite.
+
+Las direcciones con la que trabaja la cpu son direcciones lógicas. Para pasar la dirección lógica a dirección física, la cpu traduce la dirección para transformarla de lógica a física.
+Esta resolución se puede hacer en diferentes momentos, es al momento de la ejecución. 
+
+Resolución en el momento de ejecución: Cada vez que se quiere acceder a una dirección lógica, la cpu la traduce a una dirección física. 
+
+Memory Management Unit: MMU 
+Dispisitivo de hardware que mapea direcciones lógicas a físicas.
+Solo se puede realizar en modo kernel. 

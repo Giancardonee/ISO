@@ -1,0 +1,26 @@
+Los procesos son componentes fundamentales de un programa que se ejecuta en un sistema operativo. Se dividen en procesos CPU bound y I/O bound, dependiendo de su uso de recursos.
+
+Procesos que estan ligados a la CPU: CPU BOUND, son aquellos que solamente deben ejecutar rafagas del cpu. Estos procesos requieren tiempo de CPU.
+Procesos I/O Bound: ligados a la entrada/salida. Van combinando rafagas del cpu con rafagas de entrada/salida. Es decir despues de ejecutarse un tiempo en la cpu, van a tener que hacer una operacion de entrada/salida, y para eso van a tener que abandonar la cpu. 
+
+
+Para que los procesos mantengan su estado interno, se crea una estructura la cual se llama PCB (Process control block0
+Contiene informacion del proceso.
+Es lo primero que se crea cuando se realiza un fork (es decir, un proceso padre crea a un proceso hijo) y es lo ultimo que se desaloca cuando el proceso termina, es decir cuando termino de ejecutarse en su totalidad.
+
+Los procesos tienen distintos estados a medida que se van ejecutando.
+Cuandu un proceso padre crea a un proceso hijo, entra en un estado de new, en donde va a haber un algoritmo de planificacion que va a determinar si existe la posibilidad de cargar el proceso en memoria, de admitirlo en la cola ready, luego de ser admitido en memoria, si es que habia la memoria suficiente para ese proceso va a quedar esperando y compitiendo en memoria RAM hasta que otro planificador lo seleccione como candidato para ser despachado hacia el estado de running, que seria asignarle tiempo de cpu para que se empiece a ejecutar.
+Un proceso puede terminar su ejecucion en una sola rafaga de ejecucion o podria por alguna interrupcion volver al estado ready y seguir compitiendo por el cpu desde la memoria ram, o puede suceder que desde el estado running, el proceso tiene que esperar, entonces deberia ir a un estado de bloqueo, ese estado de bloqueo podria estar en memoria principal. Este proceso estara bloqueado esperando un evento, si ese evento ocurre podria volver a memoria ram para competir por el cpu.
+O podria pasarse a suspendido, lo cual se sacaria de la swap y tendria que ser reactivado para volver a competir por la cpu desde el estado ready. 
+
+La multiprogramación es clave en la planificación, permitiendo que múltiples procesos se gestionen simultáneamente, aumentando la eficiencia y reduciendo el tiempo de respuesta. Esto se logra mediante algoritmos específicos.
+Los planificadores son la clave de la multiptogramacion, son los que van a tener que decidir dependiendo de los recursos, si se pueden cargar procesos a memoria, y cuales de ellos se van a poder ejecutar,en que orden y con que priorirdad. Estan diseñados para cumplir con menor tiempo de respuesta de los procesos, mayor rendimiento de la cpu, esto haria un uso eficiente del procesador. 
+
+Existen 3 tipos de planificadores: 
+Long Term Scheduler (Planificador a largo plazo): adnmite nuevos procesos a memoria (controla el grado de multiprogramacion)
+Selecciona de los procesos nuevos cuales son los que tienen la prioridad que se carguen en memoria ram. 
+
+Medium Term Scheduler: Realiza el swapping (intercambio) entre el disco y la memoria cuando el SO lo determina (puede disminuir el grado de multiprogramacion)
+
+Short Term Scheduler: Determina que proceso pasara a ejecutarse (determina que procesos que esten en ready, pasaran a running)
+
